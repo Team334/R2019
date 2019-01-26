@@ -1,11 +1,18 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import frc.robot.subsystems.Intake;
 
 public class Robot extends TimedRobot {
+    //declare oi and subsystems
+    public static OI oi;
+    public static Intake sIntake;
+
     @Override
     public void robotInit() {
-
+    //initialize oi and subsystems
+        oi = new OI();
+        sIntake = new Intake();
     }
 
     @Override
