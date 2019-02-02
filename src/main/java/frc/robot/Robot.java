@@ -1,21 +1,25 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import frc.robot.subsystems.Elevator;
 
 public class Robot extends TimedRobot {
+
+    public static Elevator sElevator;
+
     @Override
     public void robotInit() {
-
+        sElevator = new Elevator();
     }
 
     @Override
     public void robotPeriodic() {
-    
+
     }
 
     @Override
     public void disabledInit() {
-    
+
     }
 
     @Override
@@ -30,7 +34,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void autonomousPeriodic() {
-        
+
     }
 
     @Override
@@ -40,7 +44,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopPeriodic() {
-    
+
     }
 
     @Override

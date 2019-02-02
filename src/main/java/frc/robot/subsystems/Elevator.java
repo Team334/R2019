@@ -3,6 +3,8 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PWMVictorSPX;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import frc.robot.Constants;
+import frc.robot.RobotMap;
 
 public class Elevator extends PIDSubsystem {
 
@@ -14,12 +16,12 @@ public class Elevator extends PIDSubsystem {
     public static Encoder rEncoder;
 
     public Elevator() {
-        super(1, 2, 3);
+        super(Constants.ELEVATOR_ENC_P, Constants.ELEVATOR_ENC_I, Constants.ELEVATOR_ENC_D);
         // initialize 775 pros.
-        pro1 = new PWMVictorSPX(1);
-        pro2 = new PWMVictorSPX(2);
-        pro3 = new PWMVictorSPX(3);
-        pro4 = new PWMVictorSPX(4);
+        pro1 = new PWMVictorSPX(RobotMap.ELEVATOR_MOTOR_TL);
+        pro2 = new PWMVictorSPX(RobotMap.ELEVATOR_MOTOR_TR);
+        pro3 = new PWMVictorSPX(RobotMap.ELEVATOR_MOTOR_BL);
+        pro4 = new PWMVictorSPX(RobotMap.ELEVATOR_MOTOR_BR);
 
         rEncoder = new Encoder(1, 2);
 
@@ -49,7 +51,7 @@ public class Elevator extends PIDSubsystem {
 
     @Override
     protected void usePIDOutput(double output) {
-        setMotors(output * 0.1);
+        setMotors(output);
     }
 
     @Override
