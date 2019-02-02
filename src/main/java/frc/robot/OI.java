@@ -1,13 +1,13 @@
 package frc.robot;
 
 public class OI {
-    //Declare Joysticks/buttons
+    // Declare joysticks/buttons.
 
     public OI() {
-        //initialize Joysticks/buttons
+        // Initialize joysticks/buttons.
 
         
-        //Button actions
+        // Button actions.
 
     }
 }
