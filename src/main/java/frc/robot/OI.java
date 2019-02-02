@@ -3,7 +3,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.SetElevatorHeight;
+import frc.robot.commands.*;
 
 public class OI {
     // Make joystick.
@@ -16,14 +16,14 @@ public class OI {
     public OI() {
 
         // Initialize buttons.
-        elevatorLow = new JoystickButton(thrustMaster, 14);
-        elevatorMed = new JoystickButton(thrustMaster, 15);
-        elevatorHigh = new JoystickButton(thrustMaster, 16);
+        elevatorLow = new JoystickButton(thrustMaster, RobotMap.ELEVATOR_BUTTON_LOW);
+        elevatorMed = new JoystickButton(thrustMaster, RobotMap.ELEVATOR_BUTTON_MED);
+        elevatorHigh = new JoystickButton(thrustMaster, RobotMap.ELEVATOR_BUTTON_HIGH);
 
         // Make button actions.
-        elevatorLow.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_LOW));
-        elevatorMed.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_MED));
-        elevatorHigh.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_HIGH));
+        elevatorLow.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_LOW));
+        elevatorMed.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_MED));
+        elevatorHigh.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_HIGH));
 
     }
 }

@@ -5,6 +5,7 @@ import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class SetElevatorHeight extends Command {
+    
     private double height;
 
     public SetElevatorHeight(double height) {
