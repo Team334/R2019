@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PWMVictorSPX;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
@@ -10,12 +11,17 @@ public class Elevator extends PIDSubsystem {
     private PWMVictorSPX pro3;
     private PWMVictorSPX pro4;
 
+    public static Encoder rEncoder;
+
     public Elevator() {
+        super(1, 2, 3);
         // initialize 775 pros.
         pro1 = new PWMVictorSPX(1);
         pro2 = new PWMVictorSPX(2);
         pro3 = new PWMVictorSPX(3);
         pro4 = new PWMVictorSPX(4);
+
+        rEncoder = new Encoder(1, 2);
 
         this.disable();
         this.setAbsoluteTolerance(1);
@@ -38,7 +44,7 @@ public class Elevator extends PIDSubsystem {
 
     @Override
     protected double returnPIDInput() {
-    
+        return rEncoder.get();
     }
 
     @Override
