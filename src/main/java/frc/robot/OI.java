@@ -3,10 +3,23 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Joystick;
 
 public class OI {
-    public static  Joystick leftJoystick;
-    public static Joystick rightJoystick;
+    private  Joystick leftJoystick;
+    private Joystick rightJoystick;
+
     public OI(){
-        leftJoystick = new Joystick(0);
-        rightJoystick = new Joystick(1);
+
+        leftJoystick = new Joystick(RobotMap.LEFT_JOYSTICK);
+        rightJoystick = new Joystick(RobotMap.RIGHT_JOYSTICK);
+
+    }
+    public Joystick getLeftJoystick(){
+
+        return this.leftJoystick;
+
+    }
+    public Joystick getRightJoystick(){
+
+        return this.rightJoystick;
+        
     }
 }
