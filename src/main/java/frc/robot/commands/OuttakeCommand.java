@@ -4,8 +4,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
-public class CloseIntakeCommand extends Command {
-    public CloseIntakeCommand() {
+public class OuttakeCommand extends Command {
+    public OuttakeCommand() {
         // Doesn't require anything so it can't interrupt the intake window command.
     }
 

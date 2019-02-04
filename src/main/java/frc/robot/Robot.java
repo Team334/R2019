@@ -2,7 +2,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.*;
 
 public class Robot extends TimedRobot {
     // Declare oi and subsystems.
