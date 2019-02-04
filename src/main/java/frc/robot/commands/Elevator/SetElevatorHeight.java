@@ -1,7 +1,6 @@
-package frc.robot.commands;
+package frc.robot.commands.Elevator;
 
 import frc.robot.Robot;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 public class SetElevatorHeight extends Command {
@@ -10,7 +9,6 @@ public class SetElevatorHeight extends Command {
 
     public SetElevatorHeight(double height) {
         requires(Robot.sElevator);
-
         this.height = height;
     }
 

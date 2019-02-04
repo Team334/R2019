@@ -9,5 +9,5 @@ public class Constants {
     public static final int ELEVATOR_ENC_LOW = 1000;
     public static final int ELEVATOR_ENC_MED = 2000;
     public static final int ELEVATOR_ENC_HIGH = 3000;
-
+    public static final int ELEVATOR_ENC_CARGO = 1200;
 }
