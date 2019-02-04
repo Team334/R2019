@@ -23,19 +23,18 @@ public class DriveCommand extends Command {
     protected void execute() {
         if ((Robot.m_oi.getLeftJoystick().getY() < 0 && lastJoystickLeft > 0) || (Robot.m_oi.getLeftJoystick().getY() > 0 && lastJoystickLeft < 0)){
             leftSpeed = 0;
-        }else{
+        }else {
             leftSpeed = Robot.m_oi.getLeftJoystick().getY();
         }
+        
         if ((Robot.m_oi.getRightJoystick().getY() < 0 && lastJoystickRight > 0) || (Robot.m_oi.getRightJoystick().getY() > 0 && lastJoystickRight < 0)){
             rightSpeed = 0;
-        }
-        else{
+        }else {
             rightSpeed = Robot.m_oi.getRightJoystick().getY();
         }
 
         Robot.sDrive.setLeft(leftSpeed);
         Robot.sDrive.setRight(rightSpeed);
-
 
         lastJoystickLeft = Robot.m_oi.getLeftJoystick().getY();
         lastJoystickRight = Robot.m_oi.getRightJoystick().getY();
