@@ -11,26 +11,27 @@ import frc.robot.commands.IntakeWindowCommand;
 
 public class Intake extends Subsystem {
     // Declare intake sensors and motors.
-    public VictorSP windowMotor;
-    VictorSP leftBeltMotor;
-    VictorSP rightBeltMotor;
+    VictorSP windowMotor;
+    VictorSP beltMotor;
+    VictorSP propupMotor;
     AnalogPotentiometer rIntakePot;
     public PIDController intakePID;
   
     public Intake() {
         // Initialize intake sensors and motors.
         windowMotor = new VictorSP(RobotMap.WINDOW_MOTOR_PORT);
-        leftBeltMotor = new VictorSP(RobotMap.LEFTBELT_MOTOR_PORT);
-        rightBeltMotor = new VictorSP(RobotMap.RIGHTBELT_MOTOR_PORT);
+        beltMotor = new VictorSP(RobotMap.BELT_MOTOR_PORT);
+        propupMotor = new VictorSP(RobotMap.PROPUP_MOTOR_PORT);
         rIntakePot = new AnalogPotentiometer(6);
 
-        intakePID = new PIDController(RobotMap.INTAKEPID_P, RobotMap.INTAKEPID_I, RobotMap.INTAKEPID_D, Robot.sIntake.getPotentiometer(), new StandardPIDOutput());
+        // Currently causes and error and is commented out temporarily.
+        //intakePID = new PIDController(RobotMap.INTAKEPID_P, RobotMap.INTAKEPID_I, RobotMap.INTAKEPID_D, Robot.sIntake.getPotentiometer(), new StandardPIDOutput());
     }
 
     public void setBeltMotors(double speed) {
         // Sets both motors to spin belts at given speed.
-        leftBeltMotor.set(speed);
-        rightBeltMotor.set(-speed);
+        beltMotor.set(speed);
+        //rightBeltMotor.set(-speed);
     }
 
     public void setWindowMotor(double speed) {
@@ -38,12 +39,24 @@ public class Intake extends Subsystem {
         windowMotor.set(speed);
     }
 
-    public double getPotentiometerValue() {
-        return rIntakePot.get();
+    public void setPropupMotor(double speed) {
+        // Sets the speed of the propup to the given speed.
+        propupMotor.set(speed);
+    }
+
+    public double getPotentiometerValue() { 
+        // Returns the reading from the potentiometer.
+        return rIntakePot.get(); 
     }
 
     public AnalogPotentiometer getPotentiometer() {
+        // Get the potentiometer object.
         return rIntakePot;
+    }
+
+    public VictorSP getWindowMotor() {
+        // Get the window motor object.
+        return windowMotor;
     }
 
     @Override

@@ -13,7 +13,7 @@ public class OuttakeCommand extends Command {
     protected void initialize() {}
 
     @Override
-    protected void execute() { Robot.sIntake.setBeltMotors(-RobotMap.INTAKE_BELT_SPEED); }
+    protected void execute() { Robot.sIntake.setBeltMotors(-RobotMap.OUTTAKE_BELT_SPEED); }
 
     @Override
     protected boolean isFinished() { return false; }

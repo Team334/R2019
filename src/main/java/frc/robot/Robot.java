@@ -7,14 +7,14 @@ import frc.robot.subsystems.*;
 
 public class Robot extends TimedRobot {
     // Declare oi and subsystems.
-    public static OI oi;
     public static Intake sIntake;
+    public static OI oi;
 
     @Override
     public void robotInit() {
     // Initialize oi and subsystems.
-        oi = new OI();
         sIntake = new Intake();
+        oi = new OI();
     }
 
     @Override
@@ -50,9 +50,9 @@ public class Robot extends TimedRobot {
         Scheduler.getInstance().run(); 
         // Shuffleboard display.
         SmartDashboard.putNumber("Intake Potentiometer", sIntake.getPotentiometerValue());
-        SmartDashboard.putNumber("Intake PID Error:", sIntake.intakePID.getError());
-        SmartDashboard.putNumber("Intake PID Output", sIntake.intakePID.get());
-        SmartDashboard.putNumber("Window Motor Speed", sIntake.windowMotor.get());
+        //SmartDashboard.putNumber("Intake PID Error:", sIntake.intakePID.getError());
+        //SmartDashboard.putNumber("Intake PID Output", sIntake.intakePID.get());
+        SmartDashboard.putNumber("Window Motor Speed", sIntake.getWindowMotor().get());
     }
 
     @Override
