@@ -2,6 +2,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.*;
 
 public class Robot extends TimedRobot {
@@ -45,7 +46,14 @@ public class Robot extends TimedRobot {
     }
 
     @Override
-    public void teleopPeriodic() { Scheduler.getInstance().run(); }
+    public void teleopPeriodic() { 
+        Scheduler.getInstance().run(); 
+        // Shuffleboard display.
+        SmartDashboard.putNumber("Intake Potentiometer", sIntake.getPotentiometerValue());
+        SmartDashboard.putNumber("Intake PID Error:", sIntake.intakePID.getError());
+        SmartDashboard.putNumber("Intake PID Output", sIntake.intakePID.get());
+        SmartDashboard.putNumber("Window Motor Speed", sIntake.windowMotor.get());
+    }
 
     @Override
     public void testPeriodic() {

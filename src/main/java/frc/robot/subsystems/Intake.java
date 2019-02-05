@@ -11,7 +11,7 @@ import frc.robot.commands.IntakeWindowCommand;
 
 public class Intake extends Subsystem {
     // Declare intake sensors and motors.
-    VictorSP windowMotor;
+    public VictorSP windowMotor;
     VictorSP leftBeltMotor;
     VictorSP rightBeltMotor;
     AnalogPotentiometer rIntakePot;
