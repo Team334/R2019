@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class LiftPropupCommand extends Command {
+    
     public LiftPropupCommand() {
     
     }
@@ -28,4 +29,5 @@ public class LiftPropupCommand extends Command {
 
     @Override
     protected void interrupted() { Robot.sIntake.setPropupMotor(0); }
+    
 }

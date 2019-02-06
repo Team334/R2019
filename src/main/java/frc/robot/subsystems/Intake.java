@@ -10,6 +10,7 @@ import frc.robot.StandardPIDOutput;
 import frc.robot.commands.IntakeWindowCommand;
 
 public class Intake extends Subsystem {
+
     // Declare intake sensors and motors.
     VictorSP windowMotor;
     VictorSP beltMotor;
@@ -25,7 +26,7 @@ public class Intake extends Subsystem {
         rIntakePot = new AnalogPotentiometer(6);
 
         // Currently causes and error and is commented out temporarily.
-        //intakePID = new PIDController(RobotMap.INTAKEPID_P, RobotMap.INTAKEPID_I, RobotMap.INTAKEPID_D, Robot.sIntake.getPotentiometer(), new StandardPIDOutput());
+        intakePID = new PIDController(RobotMap.INTAKEPID_P, RobotMap.INTAKEPID_I, RobotMap.INTAKEPID_D, Robot.sIntake.getPotentiometer(), new StandardPIDOutput());
     }
 
     public void setBeltMotors(double speed) {
@@ -64,4 +65,5 @@ public class Intake extends Subsystem {
         // IntakeWindowCommand is always run to allow opening and closing of arm at all times.
         setDefaultCommand(new IntakeWindowCommand()); 
     }
+    
 }

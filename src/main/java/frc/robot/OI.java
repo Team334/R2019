@@ -5,16 +5,17 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.*;
 
 public class OI {
-    // Declare joysticks/buttons.
-    Joystick operatorJoystick;
 
-    JoystickButton intakeButton;
-    JoystickButton outtakeButton;
-    JoystickButton holdBallButton;
-    JoystickButton closeArmsButton;
-    JoystickButton latchHatchButton;
-    JoystickButton liftPropupButton;
-    JoystickButton dropPropupButton;
+    // Declare joysticks/buttons.
+    private Joystick operatorJoystick;
+
+    private JoystickButton intakeButton;
+    private JoystickButton outtakeButton;
+    private JoystickButton holdBallButton;
+    private JoystickButton closeArmsButton;
+    private JoystickButton latchHatchButton;
+    private JoystickButton liftPropupButton;
+    private JoystickButton dropPropupButton;
 
     public OI() {
         // Initialize joysticks/buttons.
@@ -40,4 +41,5 @@ public class OI {
     }
 
     public Joystick getOperatorJoystick() { return operatorJoystick; }
+    
 }

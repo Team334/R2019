@@ -5,6 +5,7 @@ import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 public class LatchHatchCommand extends Command {
+    
     public LatchHatchCommand() {
         requires(Robot.sIntake);
     }
@@ -43,4 +44,5 @@ public class LatchHatchCommand extends Command {
         Robot.sIntake.intakePID.disable();
         Robot.sIntake.setWindowMotor(0);
     }
+    
 }

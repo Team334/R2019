@@ -5,6 +5,7 @@ import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 public class BringArmsTogetherCommand extends Command {
+    
     public BringArmsTogetherCommand() {
         requires(Robot.sIntake);
     }
@@ -43,4 +44,5 @@ public class BringArmsTogetherCommand extends Command {
         Robot.sIntake.intakePID.disable();
         Robot.sIntake.setWindowMotor(0);
     }
+    
 }

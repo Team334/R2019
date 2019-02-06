@@ -5,6 +5,7 @@ import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 public class IntakeWindowCommand extends Command {
+    
     public IntakeWindowCommand() { requires(Robot.sIntake); }
 
     @Override
@@ -33,4 +34,5 @@ public class IntakeWindowCommand extends Command {
     protected void interrupted() { 
 
     }
+    
 }

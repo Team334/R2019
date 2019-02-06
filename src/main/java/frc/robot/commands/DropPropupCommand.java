@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class DropPropupCommand extends Command {
+    
     public DropPropupCommand() {
         // Doesn't require anything so it can't interrupt the intake window command.
     }
@@ -26,4 +27,5 @@ public class DropPropupCommand extends Command {
 
     @Override
     protected void interrupted() { Robot.sIntake.setPropupMotor(0); }
+    
 }

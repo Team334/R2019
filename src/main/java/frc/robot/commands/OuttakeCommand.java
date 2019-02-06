@@ -5,6 +5,7 @@ import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 public class OuttakeCommand extends Command {
+    
     public OuttakeCommand() {
         // Doesn't require anything so it can't interrupt the intake window command.
     }
@@ -23,4 +24,5 @@ public class OuttakeCommand extends Command {
 
     @Override
     protected void interrupted() { Robot.sIntake.setBeltMotors(0); }
+    
 }

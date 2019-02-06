@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.*;
 
 public class Robot extends TimedRobot {
+
     // Declare oi and subsystems.
     public static Intake sIntake;
     public static OI oi;
@@ -59,4 +60,5 @@ public class Robot extends TimedRobot {
     public void testPeriodic() {
 
     }
+    
 }

@@ -5,6 +5,7 @@ import frc.robot.Robot;
 import frc.robot.RobotMap;
 
 public class HoldBallCommand extends Command {
+
     public HoldBallCommand() {
         requires(Robot.sIntake);
     }
@@ -43,4 +44,5 @@ public class HoldBallCommand extends Command {
         Robot.sIntake.intakePID.disable();
         Robot.sIntake.setWindowMotor(0);
     }
+    
 }
