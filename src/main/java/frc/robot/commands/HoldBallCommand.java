@@ -6,9 +6,7 @@ import frc.robot.RobotMap;
 
 public class HoldBallCommand extends Command {
 
-    public HoldBallCommand() {
-        requires(Robot.sIntake);
-    }
+    public HoldBallCommand() { requires(Robot.sIntake); }
 
     @Override
     protected void initialize() {

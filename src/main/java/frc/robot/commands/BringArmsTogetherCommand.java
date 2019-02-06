@@ -6,9 +6,7 @@ import frc.robot.RobotMap;
 
 public class BringArmsTogetherCommand extends Command {
     
-    public BringArmsTogetherCommand() {
-        requires(Robot.sIntake);
-    }
+    public BringArmsTogetherCommand() { requires(Robot.sIntake); }
 
     @Override
     protected void initialize() {

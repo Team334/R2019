@@ -10,8 +10,7 @@ public class DropPropupCommand extends Command {
     }
 
     @Override
-    protected void initialize() {
-    }
+    protected void initialize() {}
 
     @Override
     protected void execute() {

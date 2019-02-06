@@ -6,9 +6,7 @@ import frc.robot.RobotMap;
 
 public class LatchHatchCommand extends Command {
     
-    public LatchHatchCommand() {
-        requires(Robot.sIntake);
-    }
+    public LatchHatchCommand() { requires(Robot.sIntake); }
 
     @Override
     protected void initialize() {

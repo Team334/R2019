@@ -5,15 +5,11 @@ import frc.robot.Robot;
 
 public class LiftPropupCommand extends Command {
     
-    public LiftPropupCommand() {
-    
-    }
+    public LiftPropupCommand() {}
 
   
     @Override
-    protected void initialize() {
-    
-    }
+    protected void initialize() {}
 
     @Override
     protected void execute() {

@@ -6,9 +6,7 @@ import frc.robot.RobotMap;
 
 public class OuttakeCommand extends Command {
     
-    public OuttakeCommand() {
-        // Doesn't require anything so it can't interrupt the intake window command.
-    }
+    public OuttakeCommand() { /* Doesn't require anything so it can't interrupt the intake window command. */ }
 
     @Override
     protected void initialize() {}
