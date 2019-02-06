@@ -5,54 +5,52 @@ import frc.robot.Robot;
 
 public class DriveCommand extends Command {
 
-    double lastJoystickLeft;
-    double lastJoystickRight;
-    double leftSpeed;
-    double rightSpeed;
+    private double lastJoystickLeft;
+    private double lastJoystickRight;
+    private double leftSpeed;
+    private double rightSpeed;
 
-    public DriveCommand() {
-        requires(Robot.sDrive);
-    }
+    public DriveCommand() {  requires(Robot.sDrive); }
 
     @Override
     protected void initialize() {
-        System.out.println("TANK DRIVE INITIALIZED");
+        
     }
 
     @Override
     protected void execute() {
-        if ((Robot.m_oi.getLeftJoystick().getY() < 0 && lastJoystickLeft > 0) || (Robot.m_oi.getLeftJoystick().getY() > 0 && lastJoystickLeft < 0)){
+        if ((Robot.oi.getLeftJoystick().getY() < 0 && lastJoystickLeft > 0) || (Robot.oi.getLeftJoystick().getY() > 0 && lastJoystickLeft < 0)) {
             leftSpeed = 0;
-        }else {
-            leftSpeed = Robot.m_oi.getLeftJoystick().getY();
+        } else {
+            leftSpeed = Robot.oi.getLeftJoystick().getY();
         }
         
-        if ((Robot.m_oi.getRightJoystick().getY() < 0 && lastJoystickRight > 0) || (Robot.m_oi.getRightJoystick().getY() > 0 && lastJoystickRight < 0)){
+        if ((Robot.oi.getRightJoystick().getY() < 0 && lastJoystickRight > 0) || (Robot.oi.getRightJoystick().getY() > 0 && lastJoystickRight < 0)) {
             rightSpeed = 0;
-        }else {
-            rightSpeed = Robot.m_oi.getRightJoystick().getY();
+        } else {
+            rightSpeed = Robot.oi.getRightJoystick().getY();
         }
 
         Robot.sDrive.setLeft(leftSpeed);
         Robot.sDrive.setRight(rightSpeed);
 
-        lastJoystickLeft = Robot.m_oi.getLeftJoystick().getY();
-        lastJoystickRight = Robot.m_oi.getRightJoystick().getY();
+        lastJoystickLeft = Robot.oi.getLeftJoystick().getY();
+        lastJoystickRight = Robot.oi.getRightJoystick().getY();
     }
 
     @Override
     protected boolean isFinished() { return false; }
 
     @Override
-    protected void end() {
+    protected void end() { 
+        Robot.sDrive.stop(); 
         System.out.println("STOPPED TANK DRIVE");
-        Robot.sDrive.stop();
     }
 
     @Override
-    protected void interrupted() {
-        System.out.println("STOPPED TANK DRIVE");
+    protected void interrupted() { 
         Robot.sDrive.stop();
+        System.out.println("INTERRUPTED TANK DRIVE");
     }
 
 }

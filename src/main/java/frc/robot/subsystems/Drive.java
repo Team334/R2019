@@ -10,17 +10,17 @@ import frc.robot.commands.DriveCommand;
 
 public class Drive extends Subsystem {
 
-    CANSparkMax leftTop;
-    CANSparkMax leftMid;
-    CANSparkMax leftBot;
-    CANSparkMax rightTop;
-    CANSparkMax rightMid;
-    CANSparkMax rightBot;
+    private CANSparkMax leftTop;
+    private CANSparkMax leftMid;
+    private CANSparkMax leftBot;
+    private CANSparkMax rightTop;
+    private CANSparkMax rightMid;
+    private CANSparkMax rightBot;
 
-    SpeedControllerGroup left;
-    SpeedControllerGroup right;
+    private SpeedControllerGroup left;
+    private SpeedControllerGroup right;
     
-    public Drive(){
+    public Drive() {
         leftTop = new CANSparkMax(RobotMap.LEFT_TOP_MOTOR, MotorType.kBrushless);
         leftMid = new CANSparkMax(RobotMap.LEFT_MID_MOTOR, MotorType.kBrushless);
         leftBot = new CANSparkMax(RobotMap.LEFT_BOT_MOTOR, MotorType.kBrushless);
@@ -34,21 +34,19 @@ public class Drive extends Subsystem {
     }
 
     @Override
-    public void initDefaultCommand() {
-        new DriveCommand();
-    }
+    public void initDefaultCommand() { setDefaultCommand(new DriveCommand());}
 
-    public void setLeft(double speed){
+    public void setLeft(double speed) {
         // Sets the speed to the speed parameter.
         left.set(speed);
     }
 
-    public void setRight(double speed){
+    public void setRight(double speed) {
         // Sets the speed to the speed parameter.
         right.set(speed);
     }
 
-    public void stop(){
+    public void stop() {
         left.set(0);
         right.set(0);
     }
