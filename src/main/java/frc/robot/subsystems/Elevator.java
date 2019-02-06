@@ -23,7 +23,7 @@ public class Elevator extends PIDSubsystem {
         pro3 = new PWMVictorSPX(RobotMap.ELEVATOR_MOTOR_BL);
         pro4 = new PWMVictorSPX(RobotMap.ELEVATOR_MOTOR_BR);
 
-        rEncoder = new Encoder(1, 2);
+        rEncoder = new Encoder(-1, -1);
 
         this.disable();
         this.setAbsoluteTolerance(1);
