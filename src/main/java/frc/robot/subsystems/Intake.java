@@ -26,39 +26,23 @@ public class Intake extends Subsystem {
         rIntakePot = new AnalogPotentiometer(6);
 
         // Currently causes and error and is commented out temporarily.
-        intakePID = new PIDController(RobotMap.INTAKEPID_P, RobotMap.INTAKEPID_I, RobotMap.INTAKEPID_D, Robot.sIntake.getPotentiometer(), new StandardPIDOutput());
+        intakePID = new PIDController(RobotMap.INTAKE_PID_P, RobotMap.INTAKE_PID_I, RobotMap.INTAKE_PID_D, Robot.sIntake.getPotentiometer(), new StandardPIDOutput());
     }
 
     public void setBeltMotors(double speed) {
         // Sets both motors to spin belts at given speed.
         beltMotor.set(speed);
-        //rightBeltMotor.set(-speed);
     }
 
-    public void setWindowMotor(double speed) {
-        // Sets window motor to open/close arm at certain speed.
-        windowMotor.set(speed);
-    }
+    public void setWindowMotor(double speed) { windowMotor.set(speed); }
 
-    public void setPropupMotor(double speed) {
-        // Sets the speed of the propup to the given speed.
-        propupMotor.set(speed);
-    }
+    public void setPropupMotor(double speed) { propupMotor.set(speed); }
 
-    public double getPotentiometerValue() { 
-        // Returns the reading from the potentiometer.
-        return rIntakePot.get(); 
-    }
+    public double getPotentiometerValue() { return rIntakePot.get(); }
 
-    public AnalogPotentiometer getPotentiometer() {
-        // Get the potentiometer object.
-        return rIntakePot;
-    }
+    public AnalogPotentiometer getPotentiometer() { return rIntakePot; }
 
-    public VictorSP getWindowMotor() {
-        // Get the window motor object.
-        return windowMotor;
-    }
+    public VictorSP getWindowMotor() { return windowMotor; }
 
     @Override
     public void initDefaultCommand() { 

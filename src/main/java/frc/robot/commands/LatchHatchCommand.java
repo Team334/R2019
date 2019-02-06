@@ -11,7 +11,8 @@ public class LatchHatchCommand extends Command {
     @Override
     protected void initialize() {
         // Sets up the pid so it opens the arms and holds the hatch with a bit of pressure.
-        Robot.sIntake.intakePID.setSetpoint(RobotMap.LATCHHATCH_SETPOINT);
+        Robot.sIntake.intakePID.reset();
+        Robot.sIntake.intakePID.setSetpoint(RobotMap.LATCH_HATCH_SETPOINT);
         Robot.sIntake.intakePID.setAbsoluteTolerance(1);
         Robot.sIntake.intakePID.setOutputRange(-0.5, 0.5);
 
@@ -25,10 +26,7 @@ public class LatchHatchCommand extends Command {
     }
 
     @Override
-    protected boolean isFinished() {
-        // This command is toggled by the button.
-        return false;
-    }
+    protected boolean isFinished() { return false; }
 
     @Override
     protected void end() {

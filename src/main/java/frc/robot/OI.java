@@ -23,11 +23,11 @@ public class OI {
 
         outtakeButton = new JoystickButton(operatorJoystick, RobotMap.OUTTAKE_BUTTON);
         intakeButton = new JoystickButton(operatorJoystick, RobotMap.INTAKE_BUTTON);
-        holdBallButton = new JoystickButton(operatorJoystick, RobotMap.HOLDBALL_BUTTON);
+        holdBallButton = new JoystickButton(operatorJoystick, RobotMap.HOLD_BALL_BUTTON);
         closeArmsButton = new JoystickButton(operatorJoystick, RobotMap.CLOSE_ARMS_BUTTON);
-        latchHatchButton = new JoystickButton(operatorJoystick, RobotMap.LATCHHATCH_BUTTON);
-        liftPropupButton = new JoystickButton(operatorJoystick, RobotMap.LIFTPROPUP_BUTTON);
-        dropPropupButton = new JoystickButton(operatorJoystick, RobotMap.DROPPROPUP_BUTTON);
+        latchHatchButton = new JoystickButton(operatorJoystick, RobotMap.LATCH_HATCH_BUTTON);
+        liftPropupButton = new JoystickButton(operatorJoystick, RobotMap.LIFT_PROPUP_BUTTON);
+        dropPropupButton = new JoystickButton(operatorJoystick, RobotMap.DROP_PROPUP_BUTTON);
 
         // Button actions.
         outtakeButton.whileHeld(new OuttakeCommand());
