@@ -9,7 +9,7 @@ public class IntakeCommand extends Command {
 public IntakeCommand() { /* Doesn't require anything so it can't interrupt the intake window command. */ }
 
     @Override
-    protected void initialize() {}
+    protected void initialize() { }
 
     @Override
     protected void execute() { Robot.sIntake.setBeltMotors(RobotMap.INTAKE_BELT_SPEED); }
