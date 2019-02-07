@@ -1,18 +1,18 @@
-package frc.robot.commands;
+package frc.robot.commands.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Constants;
 import frc.robot.Robot;
 
-public class HoldBallCommand extends Command {
-
-    public HoldBallCommand() { requires(Robot.sIntake); }
+public class BringArmsTogetherCommand extends Command {
+    
+    public BringArmsTogetherCommand() { requires(Robot.sIntake); }
 
     @Override
     protected void initialize() {
-        // Sets up the pid so it closes on the ball and applies pressure onto it.
+        // Sets up the pid so it closes the arms entirely so a hatch can be taken.
         Robot.sIntake.intakePID.reset();
-        Robot.sIntake.intakePID.setSetpoint(Constants.HOLD_BALL_SETPOINT);
+        Robot.sIntake.intakePID.setSetpoint(Constants.CLOSE_ARMS_SETPOINT);
         Robot.sIntake.intakePID.setAbsoluteTolerance(Constants.INTAKE_PID_TOLERANCE);
         Robot.sIntake.intakePID.setOutputRange(Constants.INTAKE_PID_RANGE_LOWER, Constants.INTAKE_PID_RANGE_UPPER);
 
@@ -26,7 +26,10 @@ public class HoldBallCommand extends Command {
     }
 
     @Override
-    protected boolean isFinished() { return false; }
+    protected boolean isFinished() {
+        // Ends the command once the arms are fully closed.
+        return Robot.sIntake.intakePID.onTarget();
+    }
 
     @Override
     protected void end() {

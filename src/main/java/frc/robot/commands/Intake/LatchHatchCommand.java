@@ -1,18 +1,18 @@
-package frc.robot.commands;
+package frc.robot.commands.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Constants;
 import frc.robot.Robot;
 
-public class BringArmsTogetherCommand extends Command {
+public class LatchHatchCommand extends Command {
     
-    public BringArmsTogetherCommand() { requires(Robot.sIntake); }
+    public LatchHatchCommand() { requires(Robot.sIntake); }
 
     @Override
     protected void initialize() {
-        // Sets up the pid so it closes the arms entirely so a hatch can be taken.
+        // Sets up the pid so it opens the arms and holds the hatch with a bit of pressure.
         Robot.sIntake.intakePID.reset();
-        Robot.sIntake.intakePID.setSetpoint(Constants.CLOSE_ARMS_SETPOINT);
+        Robot.sIntake.intakePID.setSetpoint(Constants.LATCH_HATCH_SETPOINT);
         Robot.sIntake.intakePID.setAbsoluteTolerance(Constants.INTAKE_PID_TOLERANCE);
         Robot.sIntake.intakePID.setOutputRange(Constants.INTAKE_PID_RANGE_LOWER, Constants.INTAKE_PID_RANGE_UPPER);
 
@@ -26,10 +26,7 @@ public class BringArmsTogetherCommand extends Command {
     }
 
     @Override
-    protected boolean isFinished() {
-        // Ends the command once the arms are fully closed.
-        return Robot.sIntake.intakePID.onTarget();
-    }
+    protected boolean isFinished() { return false; }
 
     @Override
     protected void end() {

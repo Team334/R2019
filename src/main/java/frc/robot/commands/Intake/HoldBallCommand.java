@@ -1,18 +1,18 @@
-package frc.robot.commands;
+package frc.robot.commands.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Constants;
 import frc.robot.Robot;
 
-public class LatchHatchCommand extends Command {
-    
-    public LatchHatchCommand() { requires(Robot.sIntake); }
+public class HoldBallCommand extends Command {
+
+    public HoldBallCommand() { requires(Robot.sIntake); }
 
     @Override
     protected void initialize() {
-        // Sets up the pid so it opens the arms and holds the hatch with a bit of pressure.
+        // Sets up the pid so it closes on the ball and applies pressure onto it.
         Robot.sIntake.intakePID.reset();
-        Robot.sIntake.intakePID.setSetpoint(Constants.LATCH_HATCH_SETPOINT);
+        Robot.sIntake.intakePID.setSetpoint(Constants.HOLD_BALL_SETPOINT);
         Robot.sIntake.intakePID.setAbsoluteTolerance(Constants.INTAKE_PID_TOLERANCE);
         Robot.sIntake.intakePID.setOutputRange(Constants.INTAKE_PID_RANGE_LOWER, Constants.INTAKE_PID_RANGE_UPPER);
 

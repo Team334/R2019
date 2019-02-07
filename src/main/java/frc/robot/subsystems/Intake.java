@@ -8,7 +8,7 @@ import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.StandardPIDOutput;
-import frc.robot.commands.IntakeWindowCommand;
+import frc.robot.commands.Intake.IntakeWindowCommand;
 
 public class Intake extends Subsystem {
 

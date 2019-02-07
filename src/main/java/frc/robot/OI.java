@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.Elevator.*;
-import frc.robot.commands.*;
+import frc.robot.commands.Intake.*;
 
 public class OI {
 
@@ -19,6 +19,10 @@ public class OI {
     private JoystickButton liftPropupButton;
     private JoystickButton dropPropupButton;
 
+    private Button elevatorLow;
+    private Button elevatorMed;
+    private Button elevatorHigh;
+
     public OI() {
         // Initialize joysticks/buttons.
         operatorJoystick = new Joystick(RobotMap.OPERATOR_JOYSTICK_PORT);
@@ -30,6 +34,9 @@ public class OI {
         latchHatchButton = new JoystickButton(operatorJoystick, RobotMap.LATCH_HATCH_BUTTON);
         liftPropupButton = new JoystickButton(operatorJoystick, RobotMap.LIFT_PROPUP_BUTTON);
         dropPropupButton = new JoystickButton(operatorJoystick, RobotMap.DROP_PROPUP_BUTTON);
+        elevatorLow = new JoystickButton(operatorJoystick, RobotMap.ELEVATOR_BUTTON_LOW);
+        elevatorMed = new JoystickButton(operatorJoystick, RobotMap.ELEVATOR_BUTTON_MED);
+        elevatorHigh = new JoystickButton(operatorJoystick, RobotMap.ELEVATOR_BUTTON_HIGH);
 
         // Button actions.
         outtakeButton.whileHeld(new OuttakeCommand());
@@ -39,27 +46,11 @@ public class OI {
         latchHatchButton.toggleWhenPressed(new LatchHatchCommand());
         liftPropupButton.whileHeld(new LiftPropupCommand());
         dropPropupButton.whileHeld(new DropPropupCommand());
-    }
-
-    public Joystick getOperatorJoystick() { return operatorJoystick; }
-    
-    // Make joystick.
-    public static Joystick operator;
-
-    private Button elevatorLow;
-    private Button elevatorMed;
-    private Button elevatorHigh;
-
-    public OI() {
-        // Initialize buttons.
-        elevatorLow = new JoystickButton(operator, RobotMap.ELEVATOR_BUTTON_LOW);
-        elevatorMed = new JoystickButton(operator, RobotMap.ELEVATOR_BUTTON_MED);
-        elevatorHigh = new JoystickButton(operator, RobotMap.ELEVATOR_BUTTON_HIGH);
-
-        // Make button actions.
         elevatorLow.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_LOW));
         elevatorMed.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_MED));
         elevatorHigh.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_HIGH));
     }
+
+    public Joystick getOperatorJoystick() { return operatorJoystick; }
 
 }
