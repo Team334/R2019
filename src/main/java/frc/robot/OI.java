@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 
 public class OI {
 
-    private  Joystick leftJoystick;
+    private Joystick leftJoystick;
     private Joystick rightJoystick;
 
     public OI() {
