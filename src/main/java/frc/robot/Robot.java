@@ -8,11 +8,13 @@ import frc.robot.subsystems.*;
 public class Robot extends TimedRobot {
 
     public static Intake sIntake;
+    public static Elevator sElevator;
     public static OI oi;
 
     @Override
     public void robotInit() {
         sIntake = new Intake();
+        sElevator = new Elevator();
         oi = new OI();
     }
 
