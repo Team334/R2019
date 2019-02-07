@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.StandardPIDOutput;
@@ -26,7 +27,7 @@ public class Intake extends Subsystem {
         rIntakePot = new AnalogPotentiometer(6);
 
         // Currently causes and error and is commented out temporarily.
-        intakePID = new PIDController(RobotMap.INTAKE_PID_P, RobotMap.INTAKE_PID_I, RobotMap.INTAKE_PID_D, Robot.sIntake.getPotentiometer(), new StandardPIDOutput());
+        intakePID = new PIDController(Constants.INTAKE_PID_P, Constants.INTAKE_PID_I, Constants.INTAKE_PID_D, Robot.sIntake.getPotentiometer(), new StandardPIDOutput());
     }
 
     public void setBeltMotors(double speed) {

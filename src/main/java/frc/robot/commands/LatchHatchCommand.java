@@ -1,8 +1,8 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Constants;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
 public class LatchHatchCommand extends Command {
     
@@ -12,9 +12,9 @@ public class LatchHatchCommand extends Command {
     protected void initialize() {
         // Sets up the pid so it opens the arms and holds the hatch with a bit of pressure.
         Robot.sIntake.intakePID.reset();
-        Robot.sIntake.intakePID.setSetpoint(RobotMap.LATCH_HATCH_SETPOINT);
-        Robot.sIntake.intakePID.setAbsoluteTolerance(RobotMap.INTAKE_PID_TOLERANCE);
-        Robot.sIntake.intakePID.setOutputRange(RobotMap.INTAKE_PID_RANGE[0], RobotMap.INTAKE_PID_RANGE[1]);
+        Robot.sIntake.intakePID.setSetpoint(Constants.LATCH_HATCH_SETPOINT);
+        Robot.sIntake.intakePID.setAbsoluteTolerance(Constants.INTAKE_PID_TOLERANCE);
+        Robot.sIntake.intakePID.setOutputRange(Constants.INTAKE_PID_RANGE[0], Constants.INTAKE_PID_RANGE[1]);
 
         Robot.sIntake.intakePID.enable();
     }
