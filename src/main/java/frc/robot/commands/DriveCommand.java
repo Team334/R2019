@@ -10,12 +10,10 @@ public class DriveCommand extends Command {
     private double leftSpeed;
     private double rightSpeed;
 
-    public DriveCommand() {  requires(Robot.sDrive); }
+    public DriveCommand() { requires(Robot.sDrive); }
 
     @Override
-    protected void initialize() {
-        
-    }
+    protected void initialize() { }
 
     @Override
     protected void execute() {
