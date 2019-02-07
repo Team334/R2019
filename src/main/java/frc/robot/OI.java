@@ -13,11 +13,11 @@ public class OI {
     }
 
     public Joystick getLeftJoystick() {
-        return this.leftJoystick;
+        return leftJoystick;
     }
     
     public Joystick getRightJoystick() {
-        return this.rightJoystick;
+        return rightJoystick;
     }
 
 }
