@@ -3,6 +3,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PWMVictorSPX;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
+import edu.wpi.first.wpilibj.DigitalInput;
 import frc.robot.Constants;
 import frc.robot.RobotMap;
 
@@ -13,17 +14,23 @@ public class Elevator extends PIDSubsystem {
     private PWMVictorSPX pro3;
     private PWMVictorSPX pro4;
 
+    private DigitalInput rTopLimit;
+    private DigitalInput rBottomLimit;
+
     public static Encoder rEncoder;
 
     public Elevator() {
         super(Constants.ELEVATOR_ENC_P, Constants.ELEVATOR_ENC_I, Constants.ELEVATOR_ENC_D);
-        // initialize 775 pros.
+        // This will initialize the 775 pros.
         pro1 = new PWMVictorSPX(RobotMap.ELEVATOR_MOTOR_TL);
         pro2 = new PWMVictorSPX(RobotMap.ELEVATOR_MOTOR_TR);
         pro3 = new PWMVictorSPX(RobotMap.ELEVATOR_MOTOR_BL);
         pro4 = new PWMVictorSPX(RobotMap.ELEVATOR_MOTOR_BR);
 
         rEncoder = new Encoder(-1, -1);
+
+        rTopLimit = new DigitalInput(Constants.ELEVATOR_LIMIT_TOP);
+        rBottomLimit = new DigitalInput(Constants.ELEVATOR_LIMIT_BOTTOM);
 
         this.disable();
         this.setAbsoluteTolerance(1);
@@ -52,6 +59,14 @@ public class Elevator extends PIDSubsystem {
     @Override
     protected void usePIDOutput(double output) {
         setMotors(output);
+    }
+
+    public boolean isTooHigh() {
+        return rTopLimit.get();
+    }
+
+    public boolean isTooLow() {
+        return rBottomLimit.get();
     }
 
     @Override
