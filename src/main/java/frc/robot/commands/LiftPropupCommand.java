@@ -7,7 +7,6 @@ public class LiftPropupCommand extends Command {
     
     public LiftPropupCommand() { }
 
-  
     @Override
     protected void initialize() { }
 

@@ -30,10 +30,7 @@ public class Intake extends Subsystem {
         intakePID = new PIDController(Constants.INTAKE_PID_P, Constants.INTAKE_PID_I, Constants.INTAKE_PID_D, Robot.sIntake.getPotentiometer(), new StandardPIDOutput());
     }
 
-    public void setBeltMotors(double speed) {
-        // Sets both motors to spin belts at given speed.
-        beltMotor.set(speed);
-    }
+    public void setBeltMotors(double speed) { beltMotor.set(speed); }
 
     public void setWindowMotor(double speed) { windowMotor.set(speed); }
 
@@ -46,9 +43,6 @@ public class Intake extends Subsystem {
     public VictorSP getWindowMotor() { return windowMotor; }
 
     @Override
-    public void initDefaultCommand() { 
-        // IntakeWindowCommand is always run to allow opening and closing of arm at all times.
-        setDefaultCommand(new IntakeWindowCommand()); 
-    }
+    public void initDefaultCommand() { setDefaultCommand(new IntakeWindowCommand()); }
     
 }

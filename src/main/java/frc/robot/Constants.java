@@ -18,6 +18,7 @@ public class Constants {
     public static final double LATCH_HATCH_SETPOINT = 2000;
 
     public static final double INTAKE_PID_TOLERANCE = 1;
-    public static final double[] INTAKE_PID_RANGE = {-0.5, 0.5};
+    public static final double INTAKE_PID_RANGE_LOWER = -0.5;
+    public static final double INTAKE_PID_RANGE_UPPER = 0.5;
     
 }

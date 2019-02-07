@@ -14,7 +14,7 @@ public class LatchHatchCommand extends Command {
         Robot.sIntake.intakePID.reset();
         Robot.sIntake.intakePID.setSetpoint(Constants.LATCH_HATCH_SETPOINT);
         Robot.sIntake.intakePID.setAbsoluteTolerance(Constants.INTAKE_PID_TOLERANCE);
-        Robot.sIntake.intakePID.setOutputRange(Constants.INTAKE_PID_RANGE[0], Constants.INTAKE_PID_RANGE[1]);
+        Robot.sIntake.intakePID.setOutputRange(Constants.INTAKE_PID_RANGE_LOWER, Constants.INTAKE_PID_RANGE_UPPER);
 
         Robot.sIntake.intakePID.enable();
     }
