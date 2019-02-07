@@ -35,9 +35,8 @@ public class OI {
         holdBallButton.toggleWhenPressed(new HoldBallCommand());        
         closeArmsButton.whenPressed(new BringArmsTogetherCommand());
         latchHatchButton.toggleWhenPressed(new LatchHatchCommand());
-        // Currently using axis to control propup so button propup commands are commented out.
-        //liftPropupButton.whileHeld(new LiftPropupCommand());
-        //dropPropupButton.whileHeld(new DropPropupCommand());
+        liftPropupButton.whileHeld(new LiftPropupCommand());
+        dropPropupButton.whileHeld(new DropPropupCommand());
     }
 
     public Joystick getOperatorJoystick() { return operatorJoystick; }
