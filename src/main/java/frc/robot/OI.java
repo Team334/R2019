@@ -7,6 +7,7 @@ import frc.robot.commands.Elevator.*;
 import frc.robot.commands.*;
 
 public class OI {
+    
     // Make joystick.
     public static Joystick operator;
 
@@ -24,6 +25,6 @@ public class OI {
         elevatorLow.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_LOW));
         elevatorMed.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_MED));
         elevatorHigh.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_HIGH));
-
     }
+
 }
