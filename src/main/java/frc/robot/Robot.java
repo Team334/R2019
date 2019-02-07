@@ -7,13 +7,11 @@ import frc.robot.subsystems.*;
 
 public class Robot extends TimedRobot {
 
-    // Declare oi and subsystems.
     public static Intake sIntake;
     public static OI oi;
 
     @Override
     public void robotInit() {
-    // Initialize oi and subsystems.
         sIntake = new Intake();
         oi = new OI();
     }
