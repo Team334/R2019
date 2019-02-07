@@ -13,9 +13,9 @@ public class RobotMap {
     // Intake buttons.
     public static final int OUTTAKE_BUTTON = 1;
     public static final int INTAKE_BUTTON = 2;
-    public static final int HOLD_BALL_BUTTON = 30;
-    public static final int CLOSE_ARMS_BUTTON = 50;
-    public static final int LATCH_HATCH_BUTTON = 40;
+    public static final int HOLD_BALL_BUTTON = 5;
+    public static final int CLOSE_ARMS_BUTTON = 6;
+    public static final int LATCH_HATCH_BUTTON = 7;
     public static final int LIFT_PROPUP_BUTTON = 3;
     public static final int DROP_PROPUP_BUTTON = 4;
 
@@ -33,6 +33,9 @@ public class RobotMap {
     public static final double HOLD_BALL_SETPOINT = 100;
     public static final double CLOSE_ARMS_SETPOINT = 1000;
     public static final double LATCH_HATCH_SETPOINT = 2000;
+
+    public static final double INTAKE_PID_TOLERANCE = 1;
+    public static final double[] INTAKE_PID_RANGE = {-0.5, 0.5};
 
     // Joysticks.
     public static final int OPERATOR_JOYSTICK_PORT = 0;

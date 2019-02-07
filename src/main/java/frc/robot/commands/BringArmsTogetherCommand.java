@@ -13,8 +13,8 @@ public class BringArmsTogetherCommand extends Command {
         // Sets up the pid so it closes the arms entirely so a hatch can be taken.
         Robot.sIntake.intakePID.reset();
         Robot.sIntake.intakePID.setSetpoint(RobotMap.CLOSE_ARMS_SETPOINT);
-        Robot.sIntake.intakePID.setAbsoluteTolerance(1);
-        Robot.sIntake.intakePID.setOutputRange(-0.5, 0.5);
+        Robot.sIntake.intakePID.setAbsoluteTolerance(RobotMap.INTAKE_PID_TOLERANCE);
+        Robot.sIntake.intakePID.setOutputRange(RobotMap.INTAKE_PID_RANGE[0], RobotMap.INTAKE_PID_RANGE[1]);
 
         Robot.sIntake.intakePID.enable();
     }
