@@ -6,9 +6,7 @@ import frc.robot.Robot;
 
 public class CollapseElevatorCommand extends Command {
 
-    public CollapseElevatorCommand() {
-        requires(Robot.sElevator);
-    }
+    public CollapseElevatorCommand() { requires(Robot.sElevator); }
 
     @Override
     protected void initialize() {
@@ -19,9 +17,7 @@ public class CollapseElevatorCommand extends Command {
     }
 
     @Override
-    protected void execute() {
-
-    }
+    protected void execute() { }
 
     @Override
     protected boolean isFinished() {

@@ -11,6 +11,4 @@ public class Constants {
     public static final int ELEVATOR_ENC_HIGH = -1;
     public static final int ELEVATOR_ENC_CARGO = -1;
 
-    public static final int ELEVATOR_LIMIT_TOP = -1;
-    public static final int ELEVATOR_LIMIT_BOTTOM = -1;
 }

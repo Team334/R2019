@@ -21,9 +21,7 @@ public class SetElevatorHeight extends Command {
     }
 
     @Override
-    protected void execute() {
-
-    }
+    protected void execute() { }
 
     @Override
     protected boolean isFinished() {

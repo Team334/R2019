@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.DigitalInput;
 import frc.robot.Constants;
 import frc.robot.RobotMap;
+import frc.robot.commands.Elevator.JoystickElevator;
 
 public class Elevator extends PIDSubsystem {
 
@@ -27,10 +28,10 @@ public class Elevator extends PIDSubsystem {
         pro3 = new PWMVictorSPX(RobotMap.ELEVATOR_MOTOR_BL);
         pro4 = new PWMVictorSPX(RobotMap.ELEVATOR_MOTOR_BR);
 
-        rEncoder = new Encoder(-1, -1);
+        rEncoder = new Encoder(RobotMap.ELEVATOR_ENC_A, RobotMap.ELEVATOR_ENC_B);
 
-        rTopLimit = new DigitalInput(Constants.ELEVATOR_LIMIT_TOP);
-        rBottomLimit = new DigitalInput(Constants.ELEVATOR_LIMIT_BOTTOM);
+        rTopLimit = new DigitalInput(RobotMap.ELEVATOR_LIMIT_TOP);
+        rBottomLimit = new DigitalInput(RobotMap.ELEVATOR_LIMIT_BOTTOM);
 
         this.disable();
         this.setAbsoluteTolerance(1);
@@ -52,25 +53,17 @@ public class Elevator extends PIDSubsystem {
     }
 
     @Override
-    protected double returnPIDInput() {
-        return rEncoder.get();
-    }
+    protected double returnPIDInput() { return rEncoder.get(); }
 
     @Override
-    protected void usePIDOutput(double output) {
-        setMotors(output);
-    }
+    protected void usePIDOutput(double output) { setMotors(output); }
 
-    public boolean isTooHigh() {
-        return rTopLimit.get();
-    }
-
-    public boolean isTooLow() {
-        return rBottomLimit.get();
-    }
+    public boolean isTooHigh() { return rTopLimit.get(); }
+ 
+    public boolean isTooLow() { return rBottomLimit.get(); }
 
     @Override
     public void initDefaultCommand() {
-
-    }
+        JoystickElevator JoystickElevator = new JoystickElevator();
+     }
 }

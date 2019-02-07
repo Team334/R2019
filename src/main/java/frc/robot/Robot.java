@@ -13,42 +13,26 @@ public class Robot extends TimedRobot {
     }
 
     @Override
-    public void robotPeriodic() {
-
-    }
+    public void robotPeriodic() { }
 
     @Override
-    public void disabledInit() {
-
-    }
+    public void disabledInit() { }
 
     @Override
-    public void disabledPeriodic() {
-
-    }
+    public void disabledPeriodic() { }
 
     @Override
-    public void autonomousInit() {
-
-    }
+    public void autonomousInit() { }
 
     @Override
-    public void autonomousPeriodic() {
-
-    }
+    public void autonomousPeriodic() { }
 
     @Override
-    public void teleopInit() {
-
-    }
+    public void teleopInit() { }
 
     @Override
-    public void teleopPeriodic() {
-
-    }
+    public void teleopPeriodic() { }
 
     @Override
-    public void testPeriodic() {
-
-    }
+    public void testPeriodic() { }
 }
