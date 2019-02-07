@@ -39,11 +39,10 @@ public class Drive extends Subsystem {
     public void setLeft(double speed) { left.set(speed); }
 
     public void setRight(double speed) { right.set(speed); }
-    
+
     public void stop() {
         left.set(0);
         right.set(0);
     }
-    
-}
 
+}
