@@ -36,16 +36,10 @@ public class Drive extends Subsystem {
     @Override
     public void initDefaultCommand() { setDefaultCommand(new DriveCommand());}
 
-    public void setLeft(double speed) {
-        // Sets the speed to the speed parameter.
-        left.set(speed);
-    }
+    public void setLeft(double speed) { left.set(speed); }
 
-    public void setRight(double speed) {
-        // Sets the speed to the speed parameter.
-        right.set(speed);
-    }
-
+    public void setRight(double speed) { right.set(speed); }
+    
     public void stop() {
         left.set(0);
         right.set(0);
