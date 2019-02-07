@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 
 public class OI {
 
-    private Joystick leftJoystick;
+    private  Joystick leftJoystick;
     private Joystick rightJoystick;
 
     public OI() {
@@ -12,12 +12,8 @@ public class OI {
         rightJoystick = new Joystick(RobotMap.RIGHT_JOYSTICK);
     }
 
-    public Joystick getLeftJoystick() {
-        return leftJoystick;
-    }
+    public Joystick getLeftJoystick() { return leftJoystick; }
     
-    public Joystick getRightJoystick() {
-        return rightJoystick;
-    }
+    public Joystick getRightJoystick() { return rightJoystick; }
 
 }
