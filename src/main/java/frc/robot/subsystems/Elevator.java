@@ -64,7 +64,7 @@ public class Elevator extends PIDSubsystem {
 
     @Override
     public void initDefaultCommand() {
-        JoystickElevator JoystickElevator = new JoystickElevator();
+        setDefaultCommand(new JoystickElevator());
     }
 
 }
