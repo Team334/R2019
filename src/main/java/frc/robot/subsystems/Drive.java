@@ -6,7 +6,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
-import frc.robot.commands.DriveCommand;
+import frc.robot.commands.Drivetrain.DriveCommand;
 
 public class Drive extends Subsystem {
 
