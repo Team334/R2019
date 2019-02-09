@@ -6,8 +6,8 @@ import frc.robot.subsystems.*;
 public class Robot extends TimedRobot {
   
     public static Elevator sElevator;
-    public static OI oi;
     public static Drive sDrive;
+    public static OI oi;
 
     @Override
     public void robotInit() {
