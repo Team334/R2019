@@ -1,6 +1,5 @@
 package frc.robot.commands.Elevator;
 
-import frc.robot.OI;
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -13,7 +12,7 @@ public class JoystickElevator extends Command {
 
     @Override
     protected void execute() {
-        Robot.sElevator.setMotors(OI.operator.getY());
+        Robot.sElevator.setMotors(Robot.oi.getOperatorJoystick().getY());
     }
 
     @Override
