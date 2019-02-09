@@ -20,13 +20,11 @@ public class Intake extends Subsystem {
     public PIDController intakePID;
   
     public Intake() {
-        // Initialize intake sensors and motors.
+        // Initialize intake sensors, motors, and PID.
         windowMotor = new VictorSP(RobotMap.WINDOW_MOTOR_PORT);
         beltMotor = new VictorSP(RobotMap.BELT_MOTOR_PORT);
         propupMotor = new VictorSP(RobotMap.PROPUP_MOTOR_PORT);
         rIntakePot = new AnalogPotentiometer(6);
-
-        // Currently causes and error and is commented out temporarily.
         intakePID = new PIDController(Constants.INTAKE_PID_P, Constants.INTAKE_PID_I, Constants.INTAKE_PID_D, Robot.sIntake.getPotentiometer(), new StandardPIDOutput());
     }
 

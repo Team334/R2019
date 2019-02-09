@@ -2,13 +2,13 @@ package frc.robot;
 
 public class Constants {
 
-    // Other intake constants.
+    // Intake constants.
     public static final double INTAKE_BELT_SPEED = .5;
     public static final double OUTTAKE_BELT_SPEED = 1;
     public static final double WINDOW_MOTOR_SPEED_MULT = 0.7;
     public static final double PROPUP_MOTOR_SPEED_MULT = 0.8;
 
-    //Intake Potentiometer PID values and setpoint constants
+    // Intake Potentiometer PID values and setpoint constants.
     public static final double INTAKE_PID_P = 0.05;
     public static final double INTAKE_PID_I = 0;
     public static final double INTAKE_PID_D = 0.07;
