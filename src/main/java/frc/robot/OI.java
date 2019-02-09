@@ -10,6 +10,8 @@ public class OI {
 
     // Declare joysticks/buttons.
     private Joystick operatorJoystick;
+    private Joystick leftJoystick;
+    private Joystick rightJoystick;
 
     private JoystickButton intakeButton;
     private JoystickButton outtakeButton;
@@ -22,10 +24,12 @@ public class OI {
     private Button elevatorLow;
     private Button elevatorMed;
     private Button elevatorHigh;
-
+ 
     public OI() {
         // Initialize joysticks/buttons.
         operatorJoystick = new Joystick(RobotMap.OPERATOR_JOYSTICK_PORT);
+        leftJoystick = new Joystick(RobotMap.LEFT_JOYSTICK);
+        rightJoystick = new Joystick(RobotMap.RIGHT_JOYSTICK);
 
         outtakeButton = new JoystickButton(operatorJoystick, RobotMap.OUTTAKE_BUTTON);
         intakeButton = new JoystickButton(operatorJoystick, RobotMap.INTAKE_BUTTON);
@@ -49,7 +53,12 @@ public class OI {
         elevatorLow.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_LOW));
         elevatorMed.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_MED));
         elevatorHigh.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_HIGH));
+    
     }
+  
+    public Joystick getRightJoystick() { return rightJoystick; }
+  
+    public Joystick getLeftJoystick() { return leftJoystick; }
 
     public Joystick getOperatorJoystick() { return operatorJoystick; }
 
