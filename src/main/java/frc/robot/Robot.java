@@ -39,14 +39,7 @@ public class Robot extends TimedRobot {
     public void teleopInit() { }
 
     @Override
-    public void teleopPeriodic() { 
-        Scheduler.getInstance().run(); 
-        // Shuffleboard display.
-        SmartDashboard.putNumber("Intake Potentiometer", sIntake.getPotentiometerValue());
-        //SmartDashboard.putNumber("Intake PID Error:", sIntake.intakePID.getError());
-        //SmartDashboard.putNumber("Intake PID Output", sIntake.intakePID.get());
-        SmartDashboard.putNumber("Window Motor Speed", sIntake.getWindowMotor().get());
-    }
+    public void teleopPeriodic() { Scheduler.getInstance().run(); }
 
     @Override
     public void testPeriodic() { }
