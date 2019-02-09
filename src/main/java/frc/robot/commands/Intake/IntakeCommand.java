@@ -12,7 +12,9 @@ public IntakeCommand() { /* Doesn't require anything so it can't interrupt the i
     protected void initialize() { }
 
     @Override
-    protected void execute() { Robot.sIntake.setBeltMotors(Constants.INTAKE_BELT_SPEED); }
+    protected void execute() { 
+        Robot.sIntake.setBeltMotors(Constants.INTAKE_BELT_SPEED); 
+    }
 
     @Override
     protected boolean isFinished() { return false; }
