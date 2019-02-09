@@ -53,7 +53,6 @@ public class OI {
         elevatorLow.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_LOW));
         elevatorMed.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_MED));
         elevatorHigh.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_HIGH));
-    
     }
   
     public Joystick getRightJoystick() { return rightJoystick; }
