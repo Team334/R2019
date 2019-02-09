@@ -8,7 +8,7 @@ public class RobotMap {
     public static final int BELT_MOTOR_PORT = 2;
 
     // Intake potentiometer port
-    public static final int INTAKE_POT_PORT = 6;
+    public static final int INTAKE_POT_PORT = -1;
 
     // Intake buttons.
     public static final int OUTTAKE_BUTTON = 1;
