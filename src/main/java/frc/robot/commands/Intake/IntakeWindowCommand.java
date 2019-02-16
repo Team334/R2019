@@ -13,20 +13,34 @@ public class IntakeWindowCommand extends Command {
 
     @Override
     protected void execute() {
-        // Speed of the window motor is set to the x-axis of the operator joystick.
-        Robot.sIntake.setWindowMotor(Robot.oi.getOperatorJoystick().getX() * Constants.WINDOW_MOTOR_SPEED_MULT);
+        // Speed of the window motor is set according to buttons.
+        if (Robot.oi.openArmButton.get()) {
+            Robot.sIntake.setWindowMotor(-Constants.WINDOW_MOTOR_SPEED);
+        }else if (Robot.oi.closeArmButton.get()) {
+            Robot.sIntake.setWindowMotor(Constants.WINDOW_MOTOR_SPEED);
+        } 
 
-        // Alternate way of controlling propup with y-axis of operator joystick.
-        Robot.sIntake.setPropupMotor(Robot.oi.getOperatorJoystick().getY() * Constants.PROPUP_MOTOR_SPEED_MULT);
+        // Uses POV of joystick to control propup and limits movement based on encoder.
+        if (Robot.sIntake.getEncoderValue() < Constants.PROPUP_LOWER_LIMIT && (Robot.oi.getOperatorPOV() == 7 || Robot.oi.getOperatorPOV() == 0 || Robot.oi.getOperatorPOV() == 1)) {
+            Robot.sIntake.setPropupMotor(Constants.PROPUP_MOTOR_SPEED);
+        } else if (Robot.sIntake.getEncoderValue() > Constants.PROPUP_UPPER_LIMIT && (Robot.oi.getOperatorPOV() == 3 || Robot.oi.getOperatorPOV() == 4 || Robot.oi.getOperatorPOV() == 5)) {
+            Robot.sIntake.setPropupMotor(-Constants.PROPUP_MOTOR_SPEED);
+        }
     }
 
     @Override
     protected boolean isFinished() { return false; }
 
     @Override
-    protected void end() { }
+    protected void end() { 
+        Robot.sIntake.setPropupMotor(0); 
+        Robot.sIntake.setWindowMotor(0);
+    }
 
     @Override
-    protected void interrupted() { }
+    protected void interrupted() { 
+        Robot.sIntake.setPropupMotor(0); 
+        Robot.sIntake.setWindowMotor(0);
+    }
     
 }

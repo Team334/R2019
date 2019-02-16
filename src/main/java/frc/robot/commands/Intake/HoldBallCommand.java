@@ -11,18 +11,17 @@ public class HoldBallCommand extends Command {
     @Override
     protected void initialize() {
         // Sets up the pid so it closes on the ball and applies pressure onto it.
-        Robot.sIntake.intakePID.reset();
-        Robot.sIntake.intakePID.setSetpoint(Constants.HOLD_BALL_SETPOINT);
-        Robot.sIntake.intakePID.setAbsoluteTolerance(Constants.INTAKE_PID_TOLERANCE);
-        Robot.sIntake.intakePID.setOutputRange(Constants.INTAKE_PID_RANGE_LOWER, Constants.INTAKE_PID_RANGE_UPPER);
+        Robot.sIntake.setSetpoint(Constants.HOLD_BALL_SETPOINT);
+        Robot.sIntake.setAbsoluteTolerance(Constants.INTAKE_PID_TOLERANCE);
+        Robot.sIntake.setOutputRange(Constants.INTAKE_PID_RANGE_LOWER, Constants.INTAKE_PID_RANGE_UPPER);
 
-        Robot.sIntake.intakePID.enable();
+        Robot.sIntake.enable();
     }
 
     @Override
     protected void execute() {
         // Sets motor speed to the PID output.
-        Robot.sIntake.setWindowMotor(Robot.sIntake.intakePID.get());
+        Robot.sIntake.setWindowMotor(Robot.sIntake.intakePIDOutput);
     }
 
     @Override
@@ -31,13 +30,13 @@ public class HoldBallCommand extends Command {
     @Override
     protected void end() {
         // Turns the pid off and stops the motor.
-        Robot.sIntake.intakePID.disable();
+        Robot.sIntake.disable();
         Robot.sIntake.setWindowMotor(0);
     }
 
     @Override
     protected void interrupted() {
-        Robot.sIntake.intakePID.disable();
+        Robot.sIntake.disable();
         Robot.sIntake.setWindowMotor(0);
     }
     
