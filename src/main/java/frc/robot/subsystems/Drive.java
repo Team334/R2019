@@ -13,6 +13,7 @@ public class Drive extends Subsystem {
     private CANSparkMax leftA;
     private CANSparkMax leftB;
     private CANSparkMax leftC;
+  
     private CANSparkMax rightA;
     private CANSparkMax rightB;
     private CANSparkMax rightC;
@@ -34,7 +35,7 @@ public class Drive extends Subsystem {
     }
 
     @Override
-    public void initDefaultCommand() { setDefaultCommand(new DriveCommand());}
+    public void initDefaultCommand() { setDefaultCommand(new DriveCommand()); }
 
     public void setLeft(double speed) { left.set(speed); }
 
