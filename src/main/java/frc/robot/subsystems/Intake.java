@@ -27,7 +27,7 @@ public class Intake extends PIDSubsystem {
         leftBeltMotor = new VictorSP(RobotMap.LEFT_BELT_MOTOR_PORT);
         rightBeltMotor = new VictorSP(RobotMap.RIGHT_BELT_MOTOR_PORT);
         propupMotor = new VictorSP(RobotMap.PROPUP_MOTOR_PORT);
-        rIntakePotentiometer = new AnalogPotentiometer(6);
+        rIntakePotentiometer = new AnalogPotentiometer(RobotMap.INTAKE_POT_PORT);
         rIntakeEncoder = new Encoder(RobotMap.INTAKE_ENC_SOURCE_A, RobotMap.INTAKE_ENC_SOURCE_B);
     }
 
@@ -43,8 +43,6 @@ public class Intake extends PIDSubsystem {
     public double getPotentiometerValue() { return rIntakePotentiometer.get(); }
 
     public double getEncoderValue() { return rIntakeEncoder.getDistance(); }
-
-    public VictorSP getWindowMotor() { return windowMotor; }
 
     @Override
     protected double returnPIDInput() { return rIntakePotentiometer.get(); }
