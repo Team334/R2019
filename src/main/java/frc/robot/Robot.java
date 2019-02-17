@@ -1,5 +1,6 @@
 package frc.robot;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.*;
@@ -11,12 +12,17 @@ public class Robot extends TimedRobot {
     public static Drive sDrive;
     public static OI oi;
 
+    public static CameraServer driverCamera;
+
     @Override
     public void robotInit() {
         sIntake = new Intake();
         sElevator = new Elevator();
         sDrive = new Drive();
         oi = new OI();
+
+        driverCamera = CameraServer.getInstance();
+        driverCamera.startAutomaticCapture();
     }
 
     @Override

@@ -5,13 +5,22 @@ public class Constants {
     // Intake constants.
     public static final double INTAKE_BELT_SPEED = .5;
     public static final double OUTTAKE_BELT_SPEED = 1;
-    public static final double WINDOW_MOTOR_SPEED_MULT = 0.7;
-    public static final double PROPUP_MOTOR_SPEED_MULT = 0.8;
+    public static final double WINDOW_MOTOR_SPEED = 0.7;
+    public static final double PROPUP_MOTOR_SPEED = 0.8;
+    public static final double PROPUP_UPPER_LIMIT = -1;
+    public static final double PROPUP_LOWER_LIMIT = -1;
+    
+    public static final double POV_TOP_LEFT = 315;
+    public static final double POV_TOP = 0;
+    public static final double POV_TOP_RIGHT = 45;
+    public static final double POV_BOTTOM_RIGHT = 135;
+    public static final double POV_BOTTOM = 180;
+    public static final double POV_BOTTOM_LEFT = 225;
 
     // Intake Potentiometer PID values and setpoint constants.
     public static final double INTAKE_PID_P = -1;
     public static final double INTAKE_PID_I = -1;
-    public static final double INTAKE_PID_D = -1;
+    public static final double INTAKE_PID_D = -1;   
 
     public static final double HOLD_BALL_SETPOINT = -1;
     public static final double CLOSE_ARMS_SETPOINT = -1;
