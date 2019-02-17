@@ -19,10 +19,7 @@ public class LatchHatchCommand extends Command {
     }
 
     @Override
-    protected void execute() {
-        // Sets motor speed to the PID output.
-        Robot.sIntake.setWindowMotor(Robot.sIntake.intakePIDOutput);
-    }
+    protected void execute() { }
 
     @Override
     protected boolean isFinished() { return false; }

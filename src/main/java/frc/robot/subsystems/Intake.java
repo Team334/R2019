@@ -16,9 +16,8 @@ public class Intake extends PIDSubsystem {
     private VictorSP leftBeltMotor;
     private VictorSP rightBeltMotor;
     private VictorSP propupMotor;
-    private AnalogPotentiometer rIntakePot;
-    private Encoder rIntakeEnc;
-    public double intakePIDOutput;
+    private AnalogPotentiometer rIntakePotentiometer;
+    private Encoder rIntakeEncoder;
   
     public Intake() {
         super("Intake", Constants.INTAKE_PID_P, Constants.INTAKE_PID_I, Constants.INTAKE_PID_D);
@@ -28,9 +27,8 @@ public class Intake extends PIDSubsystem {
         leftBeltMotor = new VictorSP(RobotMap.LEFT_BELT_MOTOR_PORT);
         rightBeltMotor = new VictorSP(RobotMap.RIGHT_BELT_MOTOR_PORT);
         propupMotor = new VictorSP(RobotMap.PROPUP_MOTOR_PORT);
-        rIntakePot = new AnalogPotentiometer(6);
-        rIntakeEnc = new Encoder(RobotMap.INTAKE_ENC_SOURCE_A, RobotMap.INTAKE_ENC_SOURCE_B);
-        intakePIDOutput = 0;
+        rIntakePotentiometer = new AnalogPotentiometer(6);
+        rIntakeEncoder = new Encoder(RobotMap.INTAKE_ENC_SOURCE_A, RobotMap.INTAKE_ENC_SOURCE_B);
     }
 
     public void setBeltMotors(double speed) { 
@@ -42,19 +40,19 @@ public class Intake extends PIDSubsystem {
 
     public void setPropupMotor(double speed) { propupMotor.set(speed); }
 
-    public double getPotentiometerValue() { return rIntakePot.get(); }
+    public double getPotentiometerValue() { return rIntakePotentiometer.get(); }
 
-    public AnalogPotentiometer getPotentiometer() { return rIntakePot; }
+    public AnalogPotentiometer getPotentiometer() { return rIntakePotentiometer; }
 
-    public double getEncoderValue() { return rIntakeEnc.getDistance(); }
+    public double getEncoderValue() { return rIntakeEncoder.getDistance(); }
 
     public VictorSP getWindowMotor() { return windowMotor; }
 
     @Override
-    protected double returnPIDInput() { return rIntakePot.get(); }
+    protected double returnPIDInput() { return rIntakePotentiometer.get(); }
   
     @Override
-    protected void usePIDOutput(double output) { intakePIDOutput = output; }
+    protected void usePIDOutput(double output) { setWindowMotor(output); }
 
     @Override
     public void initDefaultCommand() { setDefaultCommand(new IntakeWindowCommand()); }
