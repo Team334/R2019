@@ -24,7 +24,7 @@ public class OI {
     private Button elevatorLow;
     private Button elevatorMed;
     private Button elevatorHigh;
- 
+
     public OI() {
         // Initialize joysticks/buttons.
         operatorJoystick = new Joystick(RobotMap.OPERATOR_JOYSTICK_PORT);
