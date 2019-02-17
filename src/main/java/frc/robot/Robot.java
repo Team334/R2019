@@ -2,11 +2,10 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.*;
 
 public class Robot extends TimedRobot {
-
+  
     public static Intake sIntake;
     public static Elevator sElevator;
     public static Drive sDrive;
