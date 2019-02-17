@@ -28,10 +28,10 @@ public class Drive extends Subsystem {
 
         rightA = new CANSparkMax(RobotMap.RIGHT_A_DRIVE_MOTOR, MotorType.kBrushless);
         rightB = new CANSparkMax(RobotMap.RIGHT_B_DRIVE_MOTOR, MotorType.kBrushless);
-        leftC = new CANSparkMax(RobotMap.RIGHT_C_DRIVE_MOTOR, MotorType.kBrushless);
+        rightC = new CANSparkMax(RobotMap.RIGHT_C_DRIVE_MOTOR, MotorType.kBrushless);
 
-        left = new SpeedControllerGroup(leftA, leftB,leftC);
-        right = new SpeedControllerGroup(rightA,rightB,rightC);            
+        left = new SpeedControllerGroup(leftA, leftB, leftC);
+        right = new SpeedControllerGroup(rightA, rightB, rightC);            
     }
 
     @Override
