@@ -18,8 +18,8 @@ public class OI {
     private JoystickButton holdBallButton;
     private JoystickButton armsTogetherButton;
     private JoystickButton latchHatchButton;
-    public JoystickButton openArmButton;
-    public JoystickButton closeArmButton;
+    private JoystickButton openArmButton;
+    private JoystickButton closeArmButton;
 
     private Button elevatorLow;
     private Button elevatorMed;
@@ -60,5 +60,9 @@ public class OI {
     public Joystick getOperatorJoystick() { return operatorJoystick; }
 
     public double getOperatorPOV() { return operatorJoystick.getPOV(); }
+    
+    public boolean getOpenArmButton() { return openArmButton.get(); }
+
+    public boolean getCloseArmButton() { return closeArmButton.get(); }
 
 }
