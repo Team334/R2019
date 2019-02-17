@@ -42,8 +42,6 @@ public class Intake extends PIDSubsystem {
 
     public double getPotentiometerValue() { return rIntakePotentiometer.get(); }
 
-    public AnalogPotentiometer getPotentiometer() { return rIntakePotentiometer; }
-
     public double getEncoderValue() { return rIntakeEncoder.getDistance(); }
 
     public VictorSP getWindowMotor() { return windowMotor; }
