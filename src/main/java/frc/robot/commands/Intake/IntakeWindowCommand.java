@@ -16,14 +16,16 @@ public class IntakeWindowCommand extends Command {
         // Speed of the window motor is set according to buttons.
         if (Robot.oi.openArmButton.get()) {
             Robot.sIntake.setWindowMotor(-Constants.WINDOW_MOTOR_SPEED);
-        }else if (Robot.oi.closeArmButton.get()) {
+        } else if (Robot.oi.closeArmButton.get()) {
             Robot.sIntake.setWindowMotor(Constants.WINDOW_MOTOR_SPEED);
         } 
 
         // Uses POV of joystick to control propup and limits movement based on encoder.
-        if (Robot.sIntake.getEncoderValue() < Constants.PROPUP_LOWER_LIMIT && (Robot.oi.getOperatorPOV() == 7 || Robot.oi.getOperatorPOV() == 0 || Robot.oi.getOperatorPOV() == 1)) {
+        if (Robot.sIntake.getEncoderValue() < Constants.PROPUP_LOWER_LIMIT && 
+        (Robot.oi.getOperatorPOV() == Constants.POV_TOP_LEFT || Robot.oi.getOperatorPOV() == Constants.POV_TOP || Robot.oi.getOperatorPOV() == Constants.POV_TOP_RIGHT)) {
             Robot.sIntake.setPropupMotor(Constants.PROPUP_MOTOR_SPEED);
-        } else if (Robot.sIntake.getEncoderValue() > Constants.PROPUP_UPPER_LIMIT && (Robot.oi.getOperatorPOV() == 3 || Robot.oi.getOperatorPOV() == 4 || Robot.oi.getOperatorPOV() == 5)) {
+        } else if (Robot.sIntake.getEncoderValue() > Constants.PROPUP_UPPER_LIMIT && 
+        (Robot.oi.getOperatorPOV() == Constants.POV_BOTTOM_RIGHT || Robot.oi.getOperatorPOV() == Constants.POV_BOTTOM || Robot.oi.getOperatorPOV() == Constants.POV_BOTTOM_LEFT)) {
             Robot.sIntake.setPropupMotor(-Constants.PROPUP_MOTOR_SPEED);
         }
     }
