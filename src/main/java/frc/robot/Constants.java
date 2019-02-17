@@ -9,6 +9,13 @@ public class Constants {
     public static final double PROPUP_MOTOR_SPEED = 0.8;
     public static final double PROPUP_UPPER_LIMIT = -1;
     public static final double PROPUP_LOWER_LIMIT = -1;
+    
+    public static final double POV_TOP_LEFT = 315;
+    public static final double POV_TOP = 0;
+    public static final double POV_TOP_RIGHT = 45;
+    public static final double POV_BOTTOM_RIGHT = 135;
+    public static final double POV_BOTTOM = 180;
+    public static final double POV_BOTTOM_LEFT = 225;
 
     // Intake Potentiometer PID values and setpoint constants.
     public static final double INTAKE_PID_P = -1;       
