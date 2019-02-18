@@ -5,8 +5,8 @@ import frc.robot.Robot;
 
 public class DriveCommand extends Command {
 
-    private double lastJoystickLeft;
-    private double lastJoystickRight;
+    private double lastJoystickLeft = 0;
+    private double lastJoystickRight =0;
     private double leftSpeed;
     private double rightSpeed;
 
@@ -29,7 +29,7 @@ public class DriveCommand extends Command {
             rightSpeed = Robot.oi.getRightJoystick().getY();
         }
 
-        Robot.sDrive.setLeft(leftSpeed);
+        Robot.sDrive.setLeft(-leftSpeed);
         Robot.sDrive.setRight(rightSpeed);
 
         lastJoystickLeft = Robot.oi.getLeftJoystick().getY();
