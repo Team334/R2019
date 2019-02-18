@@ -6,7 +6,7 @@ import frc.robot.Robot;
 public class DriveCommand extends Command {
 
     private double lastJoystickLeft = 0;
-    private double lastJoystickRight =0;
+    private double lastJoystickRight = 0;
     private double leftSpeed;
     private double rightSpeed;
 
