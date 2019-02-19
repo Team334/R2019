@@ -22,7 +22,7 @@ public class MoveXFeet extends Command {
 
     public MoveXFeet(double angle, double distance) {
         requires(Robot.sDrive);
-        numOfTicks = distance * 12 * 11.3;
+        numOfTicks = distance * 12 * Constants.TICKS_PER_INCH;
         this.angle = angle;
         pidGyro = new PIDController(Constants.MOVE_X_FEET_GYRO_P, Constants.MOVE_X_FEET_GYRO_I, Constants.MOVE_X_FEET_GYRO_D, new HeadingPIDSource(), new StandardPIDOutput());
         pidEncoder = new PIDController(Constants.MOVE_X_FEET_ENC_P, Constants.MOVE_X_FEET_ENC_I, Constants.MOVE_X_FEET_ENC_D, Drive.rEncoder1, new PIDEncoderOutput());    
