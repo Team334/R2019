@@ -21,7 +21,7 @@ public class Curve extends Command {
 
     public Curve(double angle, int ticks, double speed) {
         requires(Robot.sDrive);
-        pidGyro = new PIDController(Constants.TURN_P, Constants.TURN_I, Constants.TURN_D, new HeadingPIDSource(), new StandardPIDOutput());
+        pidGyro = new PIDController(Constants.CURVE_P, Constants.CURVE_I, Constants.CURVE_D, new HeadingPIDSource(), new StandardPIDOutput());
         this.angle = angle;
         this.ticks = ticks;
         this.speed = speed;
