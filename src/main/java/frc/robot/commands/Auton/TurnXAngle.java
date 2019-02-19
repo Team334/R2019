@@ -36,13 +36,13 @@ public class TurnXAngle extends Command {
     @Override
     protected void execute() {
         System.out.println(pidController.get());
-        if ((lastPIDvalue > 0 && pidController.get() < 0) || (lastPIDvalue < 0 && pidController.get() > 0)){
+        if ((lastPIDvalue > 0 && pidController.get() < 0) || (lastPIDvalue < 0 && pidController.get() > 0)) {
             value = 0;
         } else {
             value = pidController.get();
         }
 
-        if (Drive.rGyro.isInitialized()){
+        if (Drive.rGyro.isInitialized()) {
             Robot.sDrive.setLeft(value);
             Robot.sDrive.setRight(value);
         }
