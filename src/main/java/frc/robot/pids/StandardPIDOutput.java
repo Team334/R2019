@@ -1,4 +1,4 @@
-package frc.robot;
+package frc.robot.pids;
 
 import edu.wpi.first.wpilibj.PIDOutput;
 

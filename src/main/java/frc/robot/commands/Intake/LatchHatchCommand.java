@@ -12,8 +12,8 @@ public class LatchHatchCommand extends Command {
     protected void initialize() {
         // Sets up the pid so it opens the arms and holds the hatch with a bit of pressure.
         Robot.sIntake.setSetpoint(Constants.LATCH_HATCH_SETPOINT);
-        Robot.sIntake.setAbsoluteTolerance(Constants.INTAKE_PID_TOLERANCE);
-        Robot.sIntake.setOutputRange(Constants.INTAKE_PID_RANGE_LOWER, Constants.INTAKE_PID_RANGE_UPPER);
+        Robot.sIntake.setAbsoluteTolerance(1);
+        Robot.sIntake.setOutputRange(-0.4, 0.4);
 
         Robot.sIntake.enable();
     }

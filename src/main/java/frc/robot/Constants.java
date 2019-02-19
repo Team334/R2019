@@ -25,10 +25,6 @@ public class Constants {
     public static final double HOLD_BALL_SETPOINT = -1;
     public static final double CLOSE_ARMS_SETPOINT = -1;
     public static final double LATCH_HATCH_SETPOINT = -1;
-
-    public static final double INTAKE_PID_TOLERANCE = -1;
-    public static final double INTAKE_PID_RANGE_LOWER = 0.4;
-    public static final double INTAKE_PID_RANGE_UPPER = -0.4;
     
     public static final double ELEVATOR_ENC_P = 0;
     public static final double ELEVATOR_ENC_I = 0;
