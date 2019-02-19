@@ -58,5 +58,7 @@ public class Constants {
     public static final double TURN_X_ANGLE_P = 0;
     public static final double TURN_X_ANGLE_I = 0;
     public static final double TURN_X_ANGLE_D = 0;
+    
+    public statis final double TICKS_PER_INCH = -1;
   
 }
