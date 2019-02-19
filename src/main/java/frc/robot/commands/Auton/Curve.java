@@ -7,7 +7,7 @@ import frc.robot.pids.*;
 import frc.robot.subsystems.*;
 import frc.robot.Constants;
 
-public class Turn extends Command {
+public class Curve extends Command {
 
     private PIDController pidGyro;
     private double angle;
@@ -19,7 +19,7 @@ public class Turn extends Command {
     private double setRightSpeed;
     private double speed;
 
-    public Turn(double angle, int ticks, double speed) {
+    public Curve(double angle, int ticks, double speed) {
         requires(Robot.sDrive);
         pidGyro = new PIDController(Constants.TURN_P, Constants.TURN_I, Constants.TURN_D, new HeadingPIDSource(), new StandardPIDOutput());
         this.angle = angle;
@@ -83,4 +83,5 @@ public class Turn extends Command {
         pidGyro.reset();
         pidGyro.disable();
     }
+    
 }
