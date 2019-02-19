@@ -42,5 +42,23 @@ public class Constants {
     public static final double ELEVATOR_STATIC_OFFSET = 0.06;
 
     public static final double DRIVE_MULTIPLIER = 0.3;
+ 
+    public static final double MOVE_X_FEET_GYRO_P = 0;
+    public static final double MOVE_X_FEET_GYRO_I = 0;
+    public static final double MOVE_X_FEET_GYRO_D = 0;
+
+    public static final double MOVE_X_FEET_ENC_P = 0;
+    public static final double MOVE_X_FEET_ENC_I = 0;
+    public static final double MOVE_X_FEET_ENC_D = 0;
+
+    public static final double CURVE_P = 0;
+    public static final double CURVE_I = 0;
+    public static final double CURVE_D = 0;
+
+    public static final double TURN_X_ANGLE_P = 0;
+    public static final double TURN_X_ANGLE_I = 0;
+    public static final double TURN_X_ANGLE_D = 0;
+    
+    public static final double TICKS_PER_INCH = -1;
   
 }
