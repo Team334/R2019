@@ -18,25 +18,29 @@ public class Constants {
     public static final double POV_BOTTOM_LEFT = 225;
 
     // Intake Potentiometer PID values and setpoint constants.
-    public static final double INTAKE_PID_P = -1;
-    public static final double INTAKE_PID_I = -1;
-    public static final double INTAKE_PID_D = -1;   
+    public static final double INTAKE_PID_P = 0;
+    public static final double INTAKE_PID_I = 0;
+    public static final double INTAKE_PID_D = 0;   
 
     public static final double HOLD_BALL_SETPOINT = -1;
     public static final double CLOSE_ARMS_SETPOINT = -1;
     public static final double LATCH_HATCH_SETPOINT = -1;
 
     public static final double INTAKE_PID_TOLERANCE = -1;
-    public static final double INTAKE_PID_RANGE_LOWER = -1;
-    public static final double INTAKE_PID_RANGE_UPPER = -1;
+    public static final double INTAKE_PID_RANGE_LOWER = 0.4;
+    public static final double INTAKE_PID_RANGE_UPPER = -0.4;
     
-    public static final double ELEVATOR_ENC_P = -1;
-    public static final double ELEVATOR_ENC_I = -1;
-    public static final double ELEVATOR_ENC_D = -1;
+    public static final double ELEVATOR_ENC_P = 0;
+    public static final double ELEVATOR_ENC_I = 0;
+    public static final double ELEVATOR_ENC_D = 0;
 
     public static final int ELEVATOR_ENC_LOW = -1;
     public static final int ELEVATOR_ENC_MED = -1;
     public static final int ELEVATOR_ENC_HIGH = -1;
     public static final int ELEVATOR_ENC_CARGO = -1;
+
+    public static final double ELEVATOR_STATIC_OFFSET = 0.06;
+
+    public static final double DRIVE_MULTIPLIER = 0.3;
   
 }

@@ -19,10 +19,11 @@ public class Robot extends TimedRobot {
         sIntake = new Intake();
         sElevator = new Elevator();
         sDrive = new Drive();
+
         oi = new OI();
 
         driverCamera = CameraServer.getInstance();
-        driverCamera.startAutomaticCapture();
+        // driverCamera.startAutomaticCapture();
     }
 
     @Override

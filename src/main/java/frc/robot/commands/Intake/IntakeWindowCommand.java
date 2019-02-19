@@ -18,15 +18,19 @@ public class IntakeWindowCommand extends Command {
             Robot.sIntake.setWindowMotor(-Constants.WINDOW_MOTOR_SPEED);
         } else if (Robot.oi.getCloseArmButton()) {
             Robot.sIntake.setWindowMotor(Constants.WINDOW_MOTOR_SPEED);
-        } 
+        } else {
+            Robot.sIntake.setWindowMotor(0);
+        }
 
         // Uses POV of joystick to control propup and limits movement based on encoder.
-        if (Robot.sIntake.getEncoderValue() < Constants.PROPUP_LOWER_LIMIT && 
+        if (/*Robot.sIntake.getEncoderValue() < Constants.PROPUP_LOWER_LIMIT && */
         (Robot.oi.getOperatorPOV() == Constants.POV_TOP_LEFT || Robot.oi.getOperatorPOV() == Constants.POV_TOP || Robot.oi.getOperatorPOV() == Constants.POV_TOP_RIGHT)) {
             Robot.sIntake.setPropupMotor(Constants.PROPUP_MOTOR_SPEED);
-        } else if (Robot.sIntake.getEncoderValue() > Constants.PROPUP_UPPER_LIMIT && 
+        } else if (/*Robot.sIntake.getEncoderValue() > Constants.PROPUP_UPPER_LIMIT && */
         (Robot.oi.getOperatorPOV() == Constants.POV_BOTTOM_RIGHT || Robot.oi.getOperatorPOV() == Constants.POV_BOTTOM || Robot.oi.getOperatorPOV() == Constants.POV_BOTTOM_LEFT)) {
             Robot.sIntake.setPropupMotor(-Constants.PROPUP_MOTOR_SPEED);
+        } else {
+            Robot.sIntake.setPropupMotor(0);
         }
     }
 

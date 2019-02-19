@@ -3,7 +3,6 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PWMVictorSPX;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import edu.wpi.first.wpilibj.DigitalInput;
 import frc.robot.Constants;
 import frc.robot.RobotMap;
 import frc.robot.commands.Elevator.JoystickElevator;
@@ -14,9 +13,6 @@ public class Elevator extends PIDSubsystem {
     private PWMVictorSPX pro2;
     private PWMVictorSPX pro3;
     private PWMVictorSPX pro4;
-
-    private DigitalInput rTopLimit;
-    private DigitalInput rBottomLimit;
 
     public static Encoder rEncoder;
 
@@ -30,19 +26,16 @@ public class Elevator extends PIDSubsystem {
 
         rEncoder = new Encoder(RobotMap.ELEVATOR_ENC_A, RobotMap.ELEVATOR_ENC_B);
 
-        rTopLimit = new DigitalInput(RobotMap.ELEVATOR_LIMIT_TOP);
-        rBottomLimit = new DigitalInput(RobotMap.ELEVATOR_LIMIT_BOTTOM);
-
         this.disable();
         this.setAbsoluteTolerance(1);
         this.setOutputRange(-1, 1);
     }
 
     public void setMotors(double speed) {
-        pro1.set(speed);
-        pro2.set(speed);
-        pro3.set(speed);
-        pro4.set(speed);
+        pro1.set(speed - Constants.ELEVATOR_STATIC_OFFSET);
+        pro2.set(speed - Constants.ELEVATOR_STATIC_OFFSET);
+        pro3.set(speed - Constants.ELEVATOR_STATIC_OFFSET);
+        pro4.set(speed - Constants.ELEVATOR_STATIC_OFFSET);
     }
 
     public void stop() {
@@ -57,10 +50,6 @@ public class Elevator extends PIDSubsystem {
 
     @Override
     protected void usePIDOutput(double output) { setMotors(output); }
-
-    public boolean isTooHigh() { return rTopLimit.get(); }
- 
-    public boolean isTooLow() { return rBottomLimit.get(); }
 
     @Override
     public void initDefaultCommand() {
