@@ -49,13 +49,13 @@ public class MoveXFeet extends Command {
 
     @Override
     protected void execute() {
-        if ((leftSideSpeedPrev < 0 && (-pidEncoder.get() + pidGyro.get()) > 0) || (leftSideSpeedPrev > 0 && (-pidEncoder.get() + pidGyro.get()) < 0)){
+        if ((leftSideSpeedPrev < 0 && (-pidEncoder.get() + pidGyro.get()) > 0) || (leftSideSpeedPrev > 0 && (-pidEncoder.get() + pidGyro.get()) < 0)) {
             setLeftSpeed = 0;
         } else {
             setLeftSpeed = -pidEncoder.get() + pidGyro.get();
         }
     
-        if ((rightSideSpeedPrev < 0 && (pidEncoder.get() + pidGyro.get()) > 0) || (rightSideSpeedPrev > 0 && (pidEncoder.get() + pidGyro.get()) < 0)){
+        if ((rightSideSpeedPrev < 0 && (pidEncoder.get() + pidGyro.get()) > 0) || (rightSideSpeedPrev > 0 && (pidEncoder.get() + pidGyro.get()) < 0)) {
             setRightSpeed = 0;
         } else {
             setRightSpeed = pidEncoder.get() + pidGyro.get();
@@ -64,12 +64,11 @@ public class MoveXFeet extends Command {
         leftSideSpeedPrev = -pidEncoder.get() + pidGyro.get();
         rightSideSpeedPrev = pidEncoder.get() + pidGyro.get();
 
-        if (Drive.rGyro.isInitialized()){
+        if (Drive.rGyro.isInitialized()) {
             Robot.sDrive.setLeft(setLeftSpeed);
             Robot.sDrive.setRight(setRightSpeed);
         }
     }
-
 
     @Override
     protected boolean isFinished() { return pidEncoder.onTarget() && pidGyro.onTarget(); }
