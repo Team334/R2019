@@ -44,19 +44,19 @@ public class Turn extends Command {
 
     @Override
     protected void execute() {
-        if ((leftSideSpeedPrev < 0 && (-speed + pidGyro.get()) > 0) || (leftSideSpeedPrev > 0 && (-speed + pidGyro.get()) < 0)){
+        if ((leftSideSpeedPrev < 0 && (-speed + pidGyro.get()) > 0) || (leftSideSpeedPrev > 0 && (-speed + pidGyro.get()) < 0)) {
             setLeftSpeed = 0;
         } else {
-        setLeftSpeed = -speed + pidGyro.get();
+            setLeftSpeed = -speed + pidGyro.get();
         }
 
-        if ((rightSideSpeedPrev < 0 && (speed + pidGyro.get()) > 0) || (rightSideSpeedPrev > 0 && (speed + pidGyro.get()) < 0)){
+        if ((rightSideSpeedPrev < 0 && (speed + pidGyro.get()) > 0) || (rightSideSpeedPrev > 0 && (speed + pidGyro.get()) < 0)) {
             setRightSpeed = 0;
         } else {
             setRightSpeed = speed + pidGyro.get();
         }
 
-        if (Drive.rGyro.isInitialized()){
+        if (Drive.rGyro.isInitialized()) {
             Robot.sDrive.setLeft(setLeftSpeed);
             Robot.sDrive.setRight(setRightSpeed);
         }
