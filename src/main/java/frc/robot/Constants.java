@@ -51,9 +51,9 @@ public class Constants {
     public static final double MOVE_X_FEET_ENC_I = 0;
     public static final double MOVE_X_FEET_ENC_D = 0;
 
-    public static final double TURN_P = 0;
-    public static final double TURN_I = 0;
-    public static final double TURN_D = 0;
+    public static final double CURVE_P = 0;
+    public static final double CURVE_I = 0;
+    public static final double CURVE_D = 0;
 
     public static final double TURN_X_ANGLE_P = 0;
     public static final double TURN_X_ANGLE_I = 0;
