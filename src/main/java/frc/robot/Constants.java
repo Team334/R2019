@@ -38,21 +38,25 @@ public class Constants {
     public static final int ELEVATOR_ENC_MED = -1;
     public static final int ELEVATOR_ENC_HIGH = -1;
     public static final int ELEVATOR_ENC_CARGO = -1;
+    
+    public static final double ELEVATOR_STATIC_OFFSET = 0.06;
+    
+    public static final double DRIVE_MULTIPLIER = 0.3;
 
-    public static final double MOVE_X_FEET_GYRO_P = -1;
-    public static final double MOVE_X_FEET_GYRO_I = -1;
-    public static final double MOVE_X_FEET_GYRO_D = -1;
+    public static final double MOVE_X_FEET_GYRO_P = 0;
+    public static final double MOVE_X_FEET_GYRO_I = 0;
+    public static final double MOVE_X_FEET_GYRO_D = 0;
 
-    public static final double MOVE_X_FEET_ENC_P = -1;
-    public static final double MOVE_X_FEET_ENC_I = -1;
-    public static final double MOVE_X_FEET_ENC_D = -1;
+    public static final double MOVE_X_FEET_ENC_P = 0;
+    public static final double MOVE_X_FEET_ENC_I = 0;
+    public static final double MOVE_X_FEET_ENC_D = 0;
 
-    public static final double TURN_P = -1;
-    public static final double TURN_I = -1;
-    public static final double TURN_D = -1;
+    public static final double TURN_P = 0;
+    public static final double TURN_I = 0;
+    public static final double TURN_D = 0;
 
-    public static final double TURN_X_ANGLE_P = -1;
-    public static final double TURN_X_ANGLE_I = -1;
-    public static final double TURN_X_ANGLE_D = -1;
+    public static final double TURN_X_ANGLE_P = 0;
+    public static final double TURN_X_ANGLE_I = 0;
+    public static final double TURN_X_ANGLE_D = 0;
   
 }
