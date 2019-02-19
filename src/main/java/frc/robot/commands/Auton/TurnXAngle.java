@@ -30,7 +30,6 @@ public class TurnXAngle extends Command {
         pidController.setAbsoluteTolerance(1);
         pidController.setOutputRange(-0.75, 0.75);
         pidController.enable();
-
     }
 
     @Override
