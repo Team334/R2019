@@ -31,8 +31,8 @@ public class Intake extends PIDSubsystem {
     }
 
     public void setBeltMotors(double speed) { 
-        leftBeltMotor.set(speed); 
-        rightBeltMotor.set(-speed);
+        leftBeltMotor.set(-speed); 
+        rightBeltMotor.set(speed);
     }
 
     public void setWindowMotor(double speed) { windowMotor.set(speed); }

@@ -1,9 +1,13 @@
 package frc.robot.commands.Elevator;
 
+import frc.robot.Constants;
 import frc.robot.Robot;
+import frc.robot.subsystems.Elevator;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class JoystickElevator extends Command {
+
+    public static double currentHeight = 0;
 
     public JoystickElevator() { requires(Robot.sElevator); }
 
@@ -12,7 +16,13 @@ public class JoystickElevator extends Command {
 
     @Override
     protected void execute() {
-        Robot.sElevator.setMotors(Robot.oi.getOperatorJoystick().getY());
+        currentHeight += Robot.oi.getOperatorJoystick().getY();
+        if (Elevator.rEncoder.get() < Constants.ELEVATOR_LOWER_LIMIT && Robot.oi.getOperatorJoystick().getY() > 0 
+        || Elevator.rEncoder.get() > Constants.ELEVATOR_UPPER_LIMIT && Robot.oi.getOperatorJoystick().getY() < 0) {
+            Robot.sElevator.setMotors(0);
+        } else {
+            Robot.sElevator.setMotors(Robot.oi.getOperatorJoystick().getY());
+        }
     }
 
     @Override
