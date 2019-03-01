@@ -12,6 +12,10 @@ public class Curve extends Command {
     private PIDController pidGyro;
     private double angle;
     private int ticks;
+<<<<<<< HEAD
+=======
+    private double target;
+>>>>>>> 14ae35e9fcd8705d3080ddee9584b11ee6ecfeca
     private double leftSideSpeedPrev = 0;
     private double rightSideSpeedPrev = 0;
 
@@ -30,10 +34,17 @@ public class Curve extends Command {
 
     @Override
     protected void initialize() {
+<<<<<<< HEAD
         Drive.rEncoder1.reset();
         Drive.rEncoder2.reset();
         Drive.rGyro.resetHeading();
 
+=======
+        Drive.rGyro.resetHeading();
+
+        target = Robot.sDrive.getLeftEncoder().getPosition() + ticks;
+
+>>>>>>> 14ae35e9fcd8705d3080ddee9584b11ee6ecfeca
         pidGyro.reset();
         pidGyro.setSetpoint(angle);
         pidGyro.setAbsoluteTolerance(1);
@@ -67,7 +78,11 @@ public class Curve extends Command {
     }
 
     @Override
+<<<<<<< HEAD
     protected boolean isFinished() { return Drive.rEncoder1.get() > ticks; }
+=======
+    protected boolean isFinished() { return Robot.sDrive.getLeftEncoder().getPosition() > target; }
+>>>>>>> 14ae35e9fcd8705d3080ddee9584b11ee6ecfeca
 
     @Override
     protected void end() {

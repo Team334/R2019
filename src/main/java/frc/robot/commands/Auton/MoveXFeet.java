@@ -25,13 +25,20 @@ public class MoveXFeet extends Command {
         numOfTicks = distance * 12 * Constants.TICKS_PER_INCH;
         this.angle = angle;
         pidGyro = new PIDController(Constants.MOVE_X_FEET_GYRO_P, Constants.MOVE_X_FEET_GYRO_I, Constants.MOVE_X_FEET_GYRO_D, new HeadingPIDSource(), new StandardPIDOutput());
+<<<<<<< HEAD
         pidEncoder = new PIDController(Constants.MOVE_X_FEET_ENC_P, Constants.MOVE_X_FEET_ENC_I, Constants.MOVE_X_FEET_ENC_D, Drive.rEncoder1, new PIDEncoderOutput());    
+=======
+        pidEncoder = new PIDController(Constants.MOVE_X_FEET_ENC_P, Constants.MOVE_X_FEET_ENC_I, Constants.MOVE_X_FEET_ENC_D, new CANEncoderPIDSource(), new StandardPIDOutput());    
+>>>>>>> 14ae35e9fcd8705d3080ddee9584b11ee6ecfeca
     }
 
     @Override
     protected void initialize() {
+<<<<<<< HEAD
         Drive.rEncoder1.reset();
         Drive.rEncoder2.reset();
+=======
+>>>>>>> 14ae35e9fcd8705d3080ddee9584b11ee6ecfeca
         Drive.rGyro.resetHeading();
 
         pidGyro.reset();
@@ -41,7 +48,11 @@ public class MoveXFeet extends Command {
         pidGyro.enable();
 
         pidEncoder.reset();
+<<<<<<< HEAD
         pidEncoder.setSetpoint(numOfTicks);
+=======
+        pidEncoder.setSetpoint(Robot.sDrive.getLeftEncoder().getPosition() + numOfTicks);
+>>>>>>> 14ae35e9fcd8705d3080ddee9584b11ee6ecfeca
         pidEncoder.setAbsoluteTolerance(10);
         pidEncoder.setOutputRange(-0.5,0.5);
         pidEncoder.enable();

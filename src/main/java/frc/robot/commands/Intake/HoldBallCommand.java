@@ -12,8 +12,8 @@ public class HoldBallCommand extends Command {
     protected void initialize() {
         // Sets up the pid so it closes on the ball and applies pressure onto it.
         Robot.sIntake.setSetpoint(Constants.HOLD_BALL_SETPOINT);
-        Robot.sIntake.setAbsoluteTolerance(Constants.INTAKE_PID_TOLERANCE);
-        Robot.sIntake.setOutputRange(Constants.INTAKE_PID_RANGE_LOWER, Constants.INTAKE_PID_RANGE_UPPER);
+        Robot.sIntake.setAbsoluteTolerance(1);
+        Robot.sIntake.setOutputRange(-0.4, 0.4);
 
         Robot.sIntake.enable();
     }

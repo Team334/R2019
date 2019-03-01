@@ -27,8 +27,8 @@ public class Elevator extends PIDSubsystem {
         rEncoder = new Encoder(RobotMap.ELEVATOR_ENC_A, RobotMap.ELEVATOR_ENC_B);
 
         this.disable();
-        this.setAbsoluteTolerance(1);
-        this.setOutputRange(-1, 1);
+        this.setAbsoluteTolerance(1000);
+        this.setOutputRange(-0.2, 0.2);
     }
 
     public void setMotors(double speed) {
@@ -49,7 +49,7 @@ public class Elevator extends PIDSubsystem {
     protected double returnPIDInput() { return rEncoder.get(); }
 
     @Override
-    protected void usePIDOutput(double output) { setMotors(output); }
+    protected void usePIDOutput(double output) { setMotors(-output); }
 
     @Override
     public void initDefaultCommand() {

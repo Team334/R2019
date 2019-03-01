@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import com.revrobotics.CANEncoder;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
@@ -23,9 +24,12 @@ public class Drive extends Subsystem {
     private SpeedControllerGroup left;
     private SpeedControllerGroup right;
 
+<<<<<<< HEAD
     public static Encoder rEncoder1;
     public static Encoder rEncoder2;
 
+=======
+>>>>>>> 14ae35e9fcd8705d3080ddee9584b11ee6ecfeca
     public static BNO055 rGyro;
     
     public Drive() {
@@ -36,13 +40,16 @@ public class Drive extends Subsystem {
         rightA = new CANSparkMax(RobotMap.RIGHT_A_DRIVE_MOTOR, MotorType.kBrushless);
         rightB = new CANSparkMax(RobotMap.RIGHT_B_DRIVE_MOTOR, MotorType.kBrushless);
         rightC = new CANSparkMax(RobotMap.RIGHT_C_DRIVE_MOTOR, MotorType.kBrushless);
-
+        
         left = new SpeedControllerGroup(leftA, leftB, leftC);
         right = new SpeedControllerGroup(rightA, rightB, rightC);
 
         rGyro = BNO055.getInstance(BNO055.opmode_t.OPERATION_MODE_IMUPLUS, BNO055.vector_type_t.VECTOR_EULER);
+<<<<<<< HEAD
         rEncoder1 = new Encoder(0, 1);
         rEncoder2 = new Encoder(2, 3);
+=======
+>>>>>>> 14ae35e9fcd8705d3080ddee9584b11ee6ecfeca
     }
 
     @Override
@@ -56,5 +63,9 @@ public class Drive extends Subsystem {
         left.set(0);
         right.set(0);
     }
+
+    public CANEncoder getLeftEncoder() { return leftA.getEncoder(); }
+
+    public CANEncoder getRightEncoder() { return rightA.getEncoder(); }
 
 }

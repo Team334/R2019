@@ -16,7 +16,6 @@ public class OI {
     private JoystickButton intakeButton;
     private JoystickButton outtakeButton;
     private JoystickButton holdBallButton;
-    private JoystickButton armsTogetherButton;
     private JoystickButton latchHatchButton;
     private JoystickButton openArmButton;
     private JoystickButton closeArmButton;
@@ -34,7 +33,6 @@ public class OI {
         outtakeButton = new JoystickButton(operatorJoystick, RobotMap.OUTTAKE_BUTTON);
         intakeButton = new JoystickButton(operatorJoystick, RobotMap.INTAKE_BUTTON);
         holdBallButton = new JoystickButton(operatorJoystick, RobotMap.HOLD_BALL_BUTTON);
-        // armsTogetherButton = new JoystickButton(operatorJoystick, RobotMap.ARMS_TOGETHER_BUTTON);
         latchHatchButton = new JoystickButton(operatorJoystick, RobotMap.LATCH_HATCH_BUTTON);
         openArmButton = new JoystickButton(operatorJoystick, RobotMap.OPEN_ARM_BUTTON);
         closeArmButton = new JoystickButton(operatorJoystick, RobotMap.CLOSE_ARM_BUTTON);
@@ -45,8 +43,7 @@ public class OI {
         // Button actions.
         outtakeButton.whileHeld(new OuttakeCommand());
         intakeButton.whileHeld(new IntakeCommand());
-        holdBallButton.toggleWhenPressed(new HoldBallCommand());        
-        // armsTogetherButton.whenPressed(new BringArmsTogetherCommand());
+        holdBallButton.toggleWhenPressed(new HoldBallCommand());
         latchHatchButton.toggleWhenPressed(new LatchHatchCommand());
         elevatorLow.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_LOW));
         elevatorMed.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_MED));

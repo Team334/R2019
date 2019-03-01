@@ -3,6 +3,7 @@ package frc.robot;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import frc.robot.commands.Elevator.JoystickElevator;
 import frc.robot.subsystems.*;
 
 public class Robot extends TimedRobot {
@@ -23,7 +24,7 @@ public class Robot extends TimedRobot {
         oi = new OI();
 
         driverCamera = CameraServer.getInstance();
-        // driverCamera.startAutomaticCapture();
+        driverCamera.startAutomaticCapture();
     }
 
     @Override
@@ -42,10 +43,15 @@ public class Robot extends TimedRobot {
     public void autonomousPeriodic() { Scheduler.getInstance().run(); }
 
     @Override
-    public void teleopInit() { }
+    public void teleopInit() { 
+        Elevator.rEncoder.reset();
+    }
 
     @Override
-    public void teleopPeriodic() { Scheduler.getInstance().run(); }
+    public void teleopPeriodic() { 
+        Scheduler.getInstance().run();
+        System.out.println(Elevator.rEncoder.get());
+    }
 
     @Override
     public void testPeriodic() { }

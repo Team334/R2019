@@ -18,13 +18,14 @@ public class DriveCommand extends Command {
 
     @Override
     protected void execute() {
-        if ((Robot.oi.getLeftJoystick().getY() < 0 && lastJoystickLeft > 0) || (Robot.oi.getLeftJoystick().getY() > 0 && lastJoystickLeft < 0)) {
+        if ((Robot.oi.getLeftJoystick().getY() < 0 && lastJoystickLeft > 0) || (Robot.oi.getLeftJoystick().getY() > 0 && lastJoystickLeft < 0) || ((Robot.oi.getLeftJoystick().getY() > -0.05) && (Robot.oi.getLeftJoystick().getY() < 0.05))) {
             leftSpeed = 0;
         } else {
             leftSpeed = Robot.oi.getLeftJoystick().getY();
         }
         
-        if ((Robot.oi.getRightJoystick().getY() < 0 && lastJoystickRight > 0) || (Robot.oi.getRightJoystick().getY() > 0 && lastJoystickRight < 0)) {
+        if ((Robot.oi.getRightJoystick().getY() < 0 && lastJoystickRight > 0) || (Robot.oi.getRightJoystick().getY() > 0 && lastJoystickRight < 0) || ((Robot.oi.getRightJoystick().getY() > -0.05) && (Robot.oi.getRightJoystick().getY() < 0.05))) {
+            // The 0.05 is used to set speed to zero if the speed is between 0.05 and -0.05, due to joystick drift.
             rightSpeed = 0;
         } else {
             rightSpeed = Robot.oi.getRightJoystick().getY();

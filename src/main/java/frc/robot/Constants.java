@@ -25,21 +25,20 @@ public class Constants {
     public static final double HOLD_BALL_SETPOINT = -1;
     public static final double CLOSE_ARMS_SETPOINT = -1;
     public static final double LATCH_HATCH_SETPOINT = -1;
-
-    public static final double INTAKE_PID_TOLERANCE = -1;
-    public static final double INTAKE_PID_RANGE_LOWER = 0.4;
-    public static final double INTAKE_PID_RANGE_UPPER = -0.4;
     
-    public static final double ELEVATOR_ENC_P = 0;
+    public static final double ELEVATOR_ENC_P = 0.004;
     public static final double ELEVATOR_ENC_I = 0;
     public static final double ELEVATOR_ENC_D = 0;
 
-    public static final int ELEVATOR_ENC_LOW = -1;
-    public static final int ELEVATOR_ENC_MED = -1;
-    public static final int ELEVATOR_ENC_HIGH = -1;
-    public static final int ELEVATOR_ENC_CARGO = -1;
+    public static final int ELEVATOR_ENC_LOW = 61000;
+    public static final int ELEVATOR_ENC_MED = 140000;
+    public static final int ELEVATOR_ENC_HIGH = 240000;
+    public static final int ELEVATOR_ENC_CARGO = 100000;
 
-    public static final double ELEVATOR_STATIC_OFFSET = 0.06;
+    public static final int ELEVATOR_LOWER_LIMIT = 610;
+    public static final int ELEVATOR_UPPER_LIMIT = 260000;
+
+    public static final double ELEVATOR_STATIC_OFFSET = 0.07;
 
     public static final double DRIVE_MULTIPLIER = 0.3;
  
@@ -59,6 +58,10 @@ public class Constants {
     public static final double TURN_X_ANGLE_I = 0;
     public static final double TURN_X_ANGLE_D = 0;
     
+<<<<<<< HEAD
     public static final double TICKS_PER_INCH = -1;
+=======
+    public static final double TICKS_PER_INCH = 11.4;
+>>>>>>> 14ae35e9fcd8705d3080ddee9584b11ee6ecfeca
   
 }
