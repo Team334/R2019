@@ -18,14 +18,14 @@ public class DriveCommand extends Command {
 
     @Override
     protected void execute() {
-        if ((Robot.oi.getLeftJoystick().getY() < 0 && lastJoystickLeft > 0) || (Robot.oi.getLeftJoystick().getY() > 0 && lastJoystickLeft < 0) || ((Robot.oi.getLeftJoystick().getY() > -0.05) && (Robot.oi.getLeftJoystick().getY() < 0.05))) {
+        if ((Robot.oi.getLeftJoystick().getY() < 0 && lastJoystickLeft > 0) || (Robot.oi.getLeftJoystick().getY() > 0 && lastJoystickLeft < 0) || ((Robot.oi.getLeftJoystick().getY() > -Constants.DRIFT_VALUE) && (Robot.oi.getLeftJoystick().getY() < Constants.DRIFT_VALUE))) {
             leftSpeed = 0;
         } else {
             leftSpeed = Robot.oi.getLeftJoystick().getY();
         }
         
-        if ((Robot.oi.getRightJoystick().getY() < 0 && lastJoystickRight > 0) || (Robot.oi.getRightJoystick().getY() > 0 && lastJoystickRight < 0) || ((Robot.oi.getRightJoystick().getY() > -0.05) && (Robot.oi.getRightJoystick().getY() < 0.05))) {
-            // The 0.05 is used to set speed to zero if the speed is between 0.05 and -0.05, due to joystick drift.
+        if ((Robot.oi.getRightJoystick().getY() < 0 && lastJoystickRight > 0) || (Robot.oi.getRightJoystick().getY() > 0 && lastJoystickRight < 0) || ((Robot.oi.getRightJoystick().getY() > -Constants.DRIFT_VALUE) && (Robot.oi.getRightJoystick().getY() < Constants.DRIFT_VALUE))) {
+            // The Constants.DRIFT_VALUE condition is used to set the respective motor speed to zero if the joystick value of either side is between 0.05 and -0.05, due to joystick drift.
             rightSpeed = 0;
         } else {
             rightSpeed = Robot.oi.getRightJoystick().getY();
