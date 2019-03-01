@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.Drivetrain.DriveCommand;
 import frc.robot.BNO055;
-import edu.wpi.first.wpilibj.Encoder;
 
 public class Drive extends Subsystem {
 
@@ -24,12 +23,6 @@ public class Drive extends Subsystem {
     private SpeedControllerGroup left;
     private SpeedControllerGroup right;
 
-<<<<<<< HEAD
-    public static Encoder rEncoder1;
-    public static Encoder rEncoder2;
-
-=======
->>>>>>> 14ae35e9fcd8705d3080ddee9584b11ee6ecfeca
     public static BNO055 rGyro;
     
     public Drive() {
@@ -45,11 +38,6 @@ public class Drive extends Subsystem {
         right = new SpeedControllerGroup(rightA, rightB, rightC);
 
         rGyro = BNO055.getInstance(BNO055.opmode_t.OPERATION_MODE_IMUPLUS, BNO055.vector_type_t.VECTOR_EULER);
-<<<<<<< HEAD
-        rEncoder1 = new Encoder(0, 1);
-        rEncoder2 = new Encoder(2, 3);
-=======
->>>>>>> 14ae35e9fcd8705d3080ddee9584b11ee6ecfeca
     }
 
     @Override
