@@ -58,10 +58,8 @@ public class Constants {
     public static final double TURN_X_ANGLE_I = 0;
     public static final double TURN_X_ANGLE_D = 0;
     
-<<<<<<< HEAD
-    public static final double TICKS_PER_INCH = -1;
-=======
     public static final double TICKS_PER_INCH = 11.4;
->>>>>>> 14ae35e9fcd8705d3080ddee9584b11ee6ecfeca
+    
+    public static final double DRIFT_VALUE = 0.05;
   
 }
