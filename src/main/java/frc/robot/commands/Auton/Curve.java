@@ -11,64 +11,60 @@ public class Curve extends Command {
 
     private PIDController pidGyro;
     private double angle;
-    private int ticks;
-    private double target;
+    private double output;
     private double leftSideSpeedPrev = 0;
     private double rightSideSpeedPrev = 0;
 
     private double setLeftSpeed;
     private double setRightSpeed;
-    private double speed;
 
-    public Curve(double angle, int ticks, double speed) {
+    public Curve(double angle, double output) {
         requires(Robot.sDrive);
         pidGyro = new PIDController(Constants.CURVE_P, Constants.CURVE_I, Constants.CURVE_D, new HeadingPIDSource(), new StandardPIDOutput());
         this.angle = angle;
-        this.ticks = ticks;
-        this.speed = speed;
+        this.output = output;
     }
 
 
     @Override
     protected void initialize() {
         Drive.rGyro.resetHeading();
-
-        target = Robot.sDrive.getLeftEncoder().getPosition() + ticks;
+        Robot.sDrive.getLeftEncoder().setPosition(0);
+        Robot.sDrive.getRightEncoder().setPosition(0);
 
         pidGyro.reset();
         pidGyro.setSetpoint(angle);
         pidGyro.setAbsoluteTolerance(1);
-        pidGyro.setOutputRange(-0.5, 0.5);
+        pidGyro.setOutputRange(-output, output);
         pidGyro.enable();
-        System.out.println("Working!");
     }
 
     @Override
     protected void execute() {
-        if ((leftSideSpeedPrev < 0 && (-speed + pidGyro.get()) > 0) || (leftSideSpeedPrev > 0 && (-speed + pidGyro.get()) < 0)) {
+        if ((leftSideSpeedPrev < 0 && (pidGyro.get()) > 0) || (leftSideSpeedPrev > 0 && (pidGyro.get()) < 0)) {
             setLeftSpeed = 0;
         } else {
-            setLeftSpeed = -speed + pidGyro.get();
+            setLeftSpeed = pidGyro.get();
         }
 
-        if ((rightSideSpeedPrev < 0 && (speed + pidGyro.get()) > 0) || (rightSideSpeedPrev > 0 && (speed + pidGyro.get()) < 0)) {
+        if ((rightSideSpeedPrev < 0 && (pidGyro.get()) > 0) || (rightSideSpeedPrev > 0 && (pidGyro.get()) < 0)) {
             setRightSpeed = 0;
         } else {
-            setRightSpeed = speed + pidGyro.get();
+            setRightSpeed = pidGyro.get();
         }
 
         if (Drive.rGyro.isInitialized()) {
-            Robot.sDrive.setLeft(setLeftSpeed);
-            Robot.sDrive.setRight(setRightSpeed);
+            Robot.sDrive.setLeft(setLeftSpeed + 0.3);
+            Robot.sDrive.setRight(setRightSpeed - 0.3);
         }
 
-        leftSideSpeedPrev = -speed + pidGyro.get();
-        rightSideSpeedPrev = speed + pidGyro.get();
+        leftSideSpeedPrev = pidGyro.get();
+        rightSideSpeedPrev = pidGyro.get();
 
     }
 
     @Override
-    protected boolean isFinished() { return Robot.sDrive.getLeftEncoder().getPosition() > target; }
+    protected boolean isFinished() { return Drive.rGyro.getHeading() > angle; }
 
     @Override
     protected void end() {

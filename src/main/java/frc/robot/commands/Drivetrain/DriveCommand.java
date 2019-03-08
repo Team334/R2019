@@ -1,7 +1,6 @@
 package frc.robot.commands.Drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.Constants;
 import frc.robot.Robot;
 
 public class DriveCommand extends Command {
@@ -30,8 +29,8 @@ public class DriveCommand extends Command {
             rightSpeed = Robot.oi.getRightJoystick().getY();
         }
 
-        Robot.sDrive.setLeft(-leftSpeed * Constants.DRIVE_MULTIPLIER);
-        Robot.sDrive.setRight(rightSpeed * Constants.DRIVE_MULTIPLIER);
+        Robot.sDrive.setLeft(-leftSpeed);
+        Robot.sDrive.setRight(rightSpeed);
 
         lastJoystickLeft = Robot.oi.getLeftJoystick().getY();
         lastJoystickRight = Robot.oi.getRightJoystick().getY();

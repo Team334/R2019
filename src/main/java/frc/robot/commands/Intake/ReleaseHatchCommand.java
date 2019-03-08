@@ -4,15 +4,15 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Constants;
 import frc.robot.Robot;
 
-public class LatchHatchCommand extends Command {
+public class ReleaseHatchCommand extends Command {
     
-    public LatchHatchCommand() { requires(Robot.sIntake); }
+    public ReleaseHatchCommand() { requires(Robot.sIntake); }
 
     @Override
     protected void initialize() {
         // Sets up the pid so it opens the arms and holds the hatch with a bit of pressure.
-        Robot.sIntake.setSetpoint(Constants.LATCH_HATCH_SETPOINT);
-        Robot.sIntake.setAbsoluteTolerance(1);
+        Robot.sIntake.setSetpoint(Constants.CLOSE_ARMS_SETPOINT);
+        Robot.sIntake.setAbsoluteTolerance(0);
         Robot.sIntake.setOutputRange(-0.4, 0.4);
 
         Robot.sIntake.enable();

@@ -1,7 +1,6 @@
 package frc.robot.commands.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.Constants;
 import frc.robot.Robot;
 
 public class HoldBallCommand extends Command {
@@ -9,17 +8,13 @@ public class HoldBallCommand extends Command {
     public HoldBallCommand() { requires(Robot.sIntake); }
 
     @Override
-    protected void initialize() {
-        // Sets up the pid so it closes on the ball and applies pressure onto it.
-        Robot.sIntake.setSetpoint(Constants.HOLD_BALL_SETPOINT);
-        Robot.sIntake.setAbsoluteTolerance(1);
-        Robot.sIntake.setOutputRange(-0.4, 0.4);
-
-        Robot.sIntake.enable();
-    }
+    protected void initialize() { }
 
     @Override
-    protected void execute() { }
+    protected void execute() {
+        System.out.println("hi");
+        Robot.sIntake.setWindowMotor(0.75);
+     }
 
     @Override
     protected boolean isFinished() { return false; }

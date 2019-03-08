@@ -18,7 +18,7 @@ public class Elevator extends PIDSubsystem {
 
     public Elevator() {
         super(Constants.ELEVATOR_ENC_P, Constants.ELEVATOR_ENC_I, Constants.ELEVATOR_ENC_D);
-        // This will initialize the 775 pros.
+        
         pro1 = new PWMVictorSPX(RobotMap.ELEVATOR_MOTOR_TL);
         pro2 = new PWMVictorSPX(RobotMap.ELEVATOR_MOTOR_TR);
         pro3 = new PWMVictorSPX(RobotMap.ELEVATOR_MOTOR_BL);
@@ -28,7 +28,7 @@ public class Elevator extends PIDSubsystem {
 
         this.disable();
         this.setAbsoluteTolerance(1000);
-        this.setOutputRange(-0.2, 0.2);
+        this.setOutputRange(-0.4, 0.4);
     }
 
     public void setMotors(double speed) {

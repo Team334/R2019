@@ -15,17 +15,19 @@ public class Intake extends PIDSubsystem {
     private VictorSP leftBeltMotor;
     private VictorSP rightBeltMotor;
     private VictorSP propupMotor;
+
     private AnalogPotentiometer rIntakePotentiometer;
     private Encoder rIntakeEncoder;
   
     public Intake() {
-        super("Intake", Constants.INTAKE_PID_P, Constants.INTAKE_PID_I, Constants.INTAKE_PID_D);
+        super(Constants.INTAKE_PID_P, Constants.INTAKE_PID_I, Constants.INTAKE_PID_D);
 
         // Initialize intake sensors, motors, and PID.
         windowMotor = new VictorSP(RobotMap.WINDOW_MOTOR_PORT);
         leftBeltMotor = new VictorSP(RobotMap.LEFT_BELT_MOTOR_PORT);
         rightBeltMotor = new VictorSP(RobotMap.RIGHT_BELT_MOTOR_PORT);
         propupMotor = new VictorSP(RobotMap.PROPUP_MOTOR_PORT);
+
         rIntakePotentiometer = new AnalogPotentiometer(RobotMap.INTAKE_POT_PORT);
         rIntakeEncoder = new Encoder(RobotMap.INTAKE_ENC_SOURCE_A, RobotMap.INTAKE_ENC_SOURCE_B);
     }

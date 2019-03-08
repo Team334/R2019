@@ -1,6 +1,7 @@
 package frc.robot.commands.Elevator;
 
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class SetElevatorHeight extends Command {
@@ -25,7 +26,7 @@ public class SetElevatorHeight extends Command {
 
     @Override
     protected boolean isFinished() {
-        return Robot.sElevator.onTarget();
+        return Robot.sElevator.onTarget() || Robot.oi.getOperatorJoystick().getRawButton(RobotMap.ELEVATOR_OVERRIDE);
     }
 
     @Override

@@ -15,9 +15,9 @@ public class IntakeWindowCommand extends Command {
     protected void execute() {
         // Speed of the window motor is set according to buttons.
         if (Robot.oi.getOpenArmButton()) {
-            Robot.sIntake.setWindowMotor(Constants.WINDOW_MOTOR_SPEED);
+            Robot.sIntake.setWindowMotor(Constants.WINDOW_MOTOR_SPEED_OPEN);
         } else if (Robot.oi.getCloseArmButton()) {
-            Robot.sIntake.setWindowMotor(-Constants.WINDOW_MOTOR_SPEED);
+            Robot.sIntake.setWindowMotor(-Constants.WINDOW_MOTOR_SPEED_CLOSE);
         } else {
             Robot.sIntake.setWindowMotor(0);
         }

@@ -6,10 +6,11 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
+
 import frc.robot.RobotMap;
 import frc.robot.commands.Drivetrain.DriveCommand;
 import frc.robot.BNO055;
-import edu.wpi.first.wpilibj.Encoder;
+import frc.robot.Constants;
 
 public class Drive extends Subsystem {
 
@@ -23,6 +24,8 @@ public class Drive extends Subsystem {
 
     private SpeedControllerGroup left;
     private SpeedControllerGroup right;
+
+    private double speedMultiplier = Constants.DRIVE_MULTIPLIER;
 
     public static BNO055 rGyro;
     
@@ -44,9 +47,9 @@ public class Drive extends Subsystem {
     @Override
     public void initDefaultCommand() { setDefaultCommand(new DriveCommand()); }
 
-    public void setLeft(double speed) { left.set(speed); }
+    public void setLeft(double speed) { left.set(speed * speedMultiplier); }
 
-    public void setRight(double speed) { right.set(speed); }
+    public void setRight(double speed) { right.set(speed * speedMultiplier); }
 
     public void stop() {
         left.set(0);
@@ -56,5 +59,8 @@ public class Drive extends Subsystem {
     public CANEncoder getLeftEncoder() { return leftA.getEncoder(); }
 
     public CANEncoder getRightEncoder() { return rightA.getEncoder(); }
+
+    public void setAutonSpeed() { speedMultiplier = Constants.AUTON_DRIVE_MULTIPLIER; }
+    public void setDriveSpeed() { speedMultiplier = Constants.DRIVE_MULTIPLIER; }
 
 }

@@ -16,13 +16,17 @@ public class OI {
     private JoystickButton intakeButton;
     private JoystickButton outtakeButton;
     private JoystickButton holdBallButton;
-    private JoystickButton latchHatchButton;
     private JoystickButton openArmButton;
     private JoystickButton closeArmButton;
 
-    private Button elevatorLow;
-    private Button elevatorMed;
-    private Button elevatorHigh;
+    private Button elevatorLowCargo;
+    private Button elevatorMedCargo;
+    private Button elevatorHighCargo;
+    private Button elevatorLowHatch;
+    private Button elevatorMedHatch;
+    private Button elevatorHighHatch;
+    private Button elevatorHatchLoadoff;
+    private Button elevatorOverride;
 
     public OI() {
         // Initialize joysticks/buttons.
@@ -33,21 +37,28 @@ public class OI {
         outtakeButton = new JoystickButton(operatorJoystick, RobotMap.OUTTAKE_BUTTON);
         intakeButton = new JoystickButton(operatorJoystick, RobotMap.INTAKE_BUTTON);
         holdBallButton = new JoystickButton(operatorJoystick, RobotMap.HOLD_BALL_BUTTON);
-        latchHatchButton = new JoystickButton(operatorJoystick, RobotMap.LATCH_HATCH_BUTTON);
         openArmButton = new JoystickButton(operatorJoystick, RobotMap.OPEN_ARM_BUTTON);
         closeArmButton = new JoystickButton(operatorJoystick, RobotMap.CLOSE_ARM_BUTTON);
-        elevatorLow = new JoystickButton(operatorJoystick, RobotMap.ELEVATOR_BUTTON_LOW);
-        elevatorMed = new JoystickButton(operatorJoystick, RobotMap.ELEVATOR_BUTTON_MED);
-        elevatorHigh = new JoystickButton(operatorJoystick, RobotMap.ELEVATOR_BUTTON_HIGH);
+        elevatorLowCargo = new JoystickButton(operatorJoystick, RobotMap.ELEVATOR_BUTTON_LOW_CARGO);
+        elevatorMedCargo = new JoystickButton(operatorJoystick, RobotMap.ELEVATOR_BUTTON_MED_CARGO);
+        elevatorHighCargo = new JoystickButton(operatorJoystick, RobotMap.ELEVATOR_BUTTON_HIGH_CARGO);
+        elevatorLowHatch = new JoystickButton(operatorJoystick, RobotMap.ELEVATOR_BUTTON_LOW_HATCH);
+        elevatorMedHatch = new JoystickButton(operatorJoystick, RobotMap.ELEVATOR_BUTTON_MED_HATCH);
+        elevatorHighHatch = new JoystickButton(operatorJoystick, RobotMap.ELEVATOR_BUTTON_HIGH_HATCH);   
+        elevatorHatchLoadoff = new JoystickButton(operatorJoystick, RobotMap.HATCH_LOADOFF);
+        elevatorOverride = new JoystickButton(operatorJoystick, RobotMap.ELEVATOR_OVERRIDE);  
 
         // Button actions.
         outtakeButton.whileHeld(new OuttakeCommand());
         intakeButton.whileHeld(new IntakeCommand());
         holdBallButton.toggleWhenPressed(new HoldBallCommand());
-        latchHatchButton.toggleWhenPressed(new LatchHatchCommand());
-        elevatorLow.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_LOW));
-        elevatorMed.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_MED));
-        elevatorHigh.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_HIGH));
+        elevatorLowCargo.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_LOW));
+        elevatorMedCargo.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_MED));
+        elevatorHighCargo.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_HIGH));
+        elevatorLowHatch.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_LOW_HATCH));
+        elevatorMedHatch.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_MED_HATCH));
+        elevatorHighHatch.whenPressed(new SetElevatorHeight(Constants.ELEVATOR_ENC_HIGH_HATCH));
+        elevatorHatchLoadoff.whenActive(new SetElevatorHeight(Constants.ELEVATOR_HATCH_LOADOFF));
     }
   
     public Joystick getRightJoystick() { return rightJoystick; }
