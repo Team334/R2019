@@ -6,7 +6,7 @@ import frc.robot.Robot;
 
 public class IntakeCommand extends Command {
     
-public IntakeCommand() { /* Doesn't require anything so it can't interrupt the intake window command. */ }
+public IntakeCommand() { }
 
     @Override
     protected void initialize() { }

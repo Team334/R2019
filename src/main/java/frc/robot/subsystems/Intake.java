@@ -3,12 +3,11 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.AnalogPotentiometer;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.VictorSP;
-import edu.wpi.first.wpilibj.command.PIDSubsystem;
-import frc.robot.Constants;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.Intake.IntakeWindowCommand;
 
-public class Intake extends PIDSubsystem {
+public class Intake extends Subsystem {
 
     // Declare intake sensors and motors.
     private VictorSP windowMotor;
@@ -18,11 +17,11 @@ public class Intake extends PIDSubsystem {
 
     private AnalogPotentiometer rIntakePotentiometer;
     private Encoder rIntakeEncoder;
+
+    public static boolean heldBallState = false;
   
     public Intake() {
-        super(Constants.INTAKE_PID_P, Constants.INTAKE_PID_I, Constants.INTAKE_PID_D);
 
-        // Initialize intake sensors, motors, and PID.
         windowMotor = new VictorSP(RobotMap.WINDOW_MOTOR_PORT);
         leftBeltMotor = new VictorSP(RobotMap.LEFT_BELT_MOTOR_PORT);
         rightBeltMotor = new VictorSP(RobotMap.RIGHT_BELT_MOTOR_PORT);
@@ -45,11 +44,7 @@ public class Intake extends PIDSubsystem {
 
     public double getEncoderValue() { return rIntakeEncoder.getDistance(); }
 
-    @Override
-    protected double returnPIDInput() { return rIntakePotentiometer.get(); }
-  
-    @Override
-    protected void usePIDOutput(double output) { setWindowMotor(output); }
+    public Encoder getEncoder() { return rIntakeEncoder; }
 
     @Override
     public void initDefaultCommand() { setDefaultCommand(new IntakeWindowCommand()); }

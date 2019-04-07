@@ -2,18 +2,20 @@ package frc.robot.commands.Intake;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.subsystems.Intake;
 
 public class HoldBallCommand extends Command {
 
     public HoldBallCommand() { requires(Robot.sIntake); }
 
     @Override
-    protected void initialize() { }
+    protected void initialize() {    
+        Intake.heldBallState = true;
+    }
 
     @Override
     protected void execute() {
-        System.out.println("hi");
-        Robot.sIntake.setWindowMotor(0.75);
+        Robot.sIntake.setWindowMotor(0.5);
      }
 
     @Override
@@ -21,15 +23,14 @@ public class HoldBallCommand extends Command {
 
     @Override
     protected void end() {
-        // Turns the pid off and stops the motor.
-        Robot.sIntake.disable();
         Robot.sIntake.setWindowMotor(0);
+        Intake.heldBallState = false;
     }
 
     @Override
     protected void interrupted() {
-        Robot.sIntake.disable();
         Robot.sIntake.setWindowMotor(0);
+        Intake.heldBallState = false;
     }
     
 }

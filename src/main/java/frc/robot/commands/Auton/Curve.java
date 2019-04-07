@@ -41,6 +41,8 @@ public class Curve extends Command {
 
     @Override
     protected void execute() {
+        System.out.println(Drive.rGyro.getHeading());
+
         if ((leftSideSpeedPrev < 0 && (pidGyro.get()) > 0) || (leftSideSpeedPrev > 0 && (pidGyro.get()) < 0)) {
             setLeftSpeed = 0;
         } else {
@@ -64,7 +66,7 @@ public class Curve extends Command {
     }
 
     @Override
-    protected boolean isFinished() { return Drive.rGyro.getHeading() > angle; }
+    protected boolean isFinished() { return pidGyro.onTarget(); }
 
     @Override
     protected void end() {

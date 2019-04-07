@@ -17,14 +17,15 @@ public class RobotMap {
     public static final int OUTTAKE_BUTTON = 1;
     public static final int INTAKE_BUTTON = 2;
     public static final int HOLD_BALL_BUTTON = 7;
-    public static final int LATCH_HATCH_BUTTON = 6;
+    public static final int COLLAPSE_INTAKE_BUTTON = 6;
+    public static final int COLLAPSE_INTAKE_OVERRIDE_BUTTON = 11;
     public static final int OPEN_ARM_BUTTON = 3;
     public static final int CLOSE_ARM_BUTTON = 4;
     public static final int HATCH_LOADOFF = 13;
 
     // Joysticks.
-    public static final int LEFT_JOYSTICK = 1;
-    public static final int RIGHT_JOYSTICK = 0;
+    public static final int LEFT_JOYSTICK = 0;
+    public static final int RIGHT_JOYSTICK = 1;
     public static final int OPERATOR_JOYSTICK_PORT = 2;
     public static final int RIGHT_JOYSTICK_DRIVE_MODE_BUTTON = 1;
 
@@ -48,12 +49,12 @@ public class RobotMap {
     public static final int ELEVATOR_ENC_B = 1;
 
     // Drivetrain.
-    public static final int LEFT_A_DRIVE_MOTOR = 3;
-    public static final int LEFT_B_DRIVE_MOTOR = 4;
-    public static final int LEFT_C_DRIVE_MOTOR = 5;
+    public static final int LEFT_A_DRIVE_MOTOR = 6;
+    public static final int LEFT_B_DRIVE_MOTOR = 1;
+    public static final int LEFT_C_DRIVE_MOTOR = 2;
 
-    public static final int RIGHT_A_DRIVE_MOTOR = 6;
-    public static final int RIGHT_B_DRIVE_MOTOR = 1;
-    public static final int RIGHT_C_DRIVE_MOTOR = 2;
+    public static final int RIGHT_A_DRIVE_MOTOR = 5;
+    public static final int RIGHT_B_DRIVE_MOTOR = 4;
+    public static final int RIGHT_C_DRIVE_MOTOR = 3;
     
 }

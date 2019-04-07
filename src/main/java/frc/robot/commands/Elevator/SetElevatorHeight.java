@@ -15,8 +15,6 @@ public class SetElevatorHeight extends Command {
 
     @Override
     protected void initialize() {
-        System.out.println("MOVING ELEVATOR TO HEIGHT: " + height);
-
         Robot.sElevator.setSetpoint(height);
         Robot.sElevator.enable();
     }

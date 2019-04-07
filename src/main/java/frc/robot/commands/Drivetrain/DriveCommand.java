@@ -1,6 +1,7 @@
 package frc.robot.commands.Drivetrain;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Constants;
 import frc.robot.Robot;
 
 public class DriveCommand extends Command {
@@ -10,6 +11,9 @@ public class DriveCommand extends Command {
     private double leftSpeed;
     private double rightSpeed;
 
+    private double multiplier;
+    
+
     public DriveCommand() { requires(Robot.sDrive); }
 
     @Override
@@ -17,6 +21,12 @@ public class DriveCommand extends Command {
 
     @Override
     protected void execute() {
+        if (Robot.oi.getOperatorJoystick().getThrottle() <= -0.8) {
+            multiplier = Constants.DRIVE_MULTIPLIER;
+        } else {
+            multiplier = 1;
+        }
+
         if ((Robot.oi.getLeftJoystick().getY() < 0 && lastJoystickLeft > 0) || (Robot.oi.getLeftJoystick().getY() > 0 && lastJoystickLeft < 0)) {
             leftSpeed = 0;
         } else {
@@ -29,8 +39,8 @@ public class DriveCommand extends Command {
             rightSpeed = Robot.oi.getRightJoystick().getY();
         }
 
-        Robot.sDrive.setLeft(-leftSpeed);
-        Robot.sDrive.setRight(rightSpeed);
+        Robot.sDrive.setLeft(leftSpeed / multiplier);
+        Robot.sDrive.setRight(rightSpeed / multiplier);
 
         lastJoystickLeft = Robot.oi.getLeftJoystick().getY();
         lastJoystickRight = Robot.oi.getRightJoystick().getY();
@@ -42,13 +52,11 @@ public class DriveCommand extends Command {
     @Override
     protected void end() { 
         Robot.sDrive.stop(); 
-        System.out.println("STOPPED TANK DRIVE");
     }
 
     @Override
     protected void interrupted() { 
         Robot.sDrive.stop();
-        System.out.println("INTERRUPTED TANK DRIVE");
     }
 
 }

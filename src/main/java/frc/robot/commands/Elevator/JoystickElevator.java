@@ -7,8 +7,6 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class JoystickElevator extends Command {
 
-    public static double currentHeight = 0;
-
     public JoystickElevator() { requires(Robot.sElevator); }
 
     @Override
@@ -16,12 +14,11 @@ public class JoystickElevator extends Command {
 
     @Override
     protected void execute() {
-        currentHeight += Robot.oi.getOperatorJoystick().getY();
-        if (Elevator.rEncoder.get() < Constants.ELEVATOR_LOWER_LIMIT && Robot.oi.getOperatorJoystick().getY() > 0 
-        || Elevator.rEncoder.get() > Constants.ELEVATOR_UPPER_LIMIT && Robot.oi.getOperatorJoystick().getY() < 0) {
+        if (Elevator.rEncoder.get() > Constants.ELEVATOR_UPPER_LIMIT && Robot.oi.getOperatorJoystick().getY() < 0) {
             Robot.sElevator.setMotors(0);
+            
         } else {
-            Robot.sElevator.setMotors(Robot.oi.getOperatorJoystick().getY());
+            Robot.sElevator.setMotors(Robot.oi.getOperatorJoystick().getY() * Constants.ELEVATOR_SPEED_MULTIPLIER);
         }
     }
 

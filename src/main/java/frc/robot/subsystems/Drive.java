@@ -49,7 +49,7 @@ public class Drive extends Subsystem {
 
     public void setLeft(double speed) { left.set(speed * speedMultiplier); }
 
-    public void setRight(double speed) { right.set(speed * speedMultiplier); }
+    public void setRight(double speed) { right.set(-speed * speedMultiplier); }
 
     public void stop() {
         left.set(0);
